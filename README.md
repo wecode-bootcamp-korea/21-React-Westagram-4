@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+<h1>21기 React 4팀
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 프로젝트 내용
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+- 자바스크립트로 클론한 Westagram 리액트로 적용하기
+- 프로젝트 초기 셋팅(CRA)
+- GIT을 활용한 협업 연습
 
-### `npm start`
+## 공통 Mission
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Mission 1) Login | 사용자 입력 데이터 저장
 
-### `npm test`
+- 다음의 순서에 맞게 코드를 작성하여 ID, PW `<input>`에 입력된 값을 state 에 저장해주세요.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. ID `<input>` 에서 `onChange` event 발생
+2. event 발생 시 `handleIdInput` 함수 실행
+3. `handleIdInput` 는 이벤트를 인자로 받음
+4. event가 일어난 요소에 담긴 value 값 (`event.target.value`)을 state에 저장
+5. 위의 과정을 PW `<input>` 에도 동일하게 적용
+6. 위 순서대로 완료 후 `Add : Mission 1 - 사용자 입력 데이터 저장 기능 구현` commit message를 남긴 후 push 해주세요.
 
-### `npm run build`
+### Mission 2) Login | 로그인 버튼 활성화 (validation)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 입력한 아이디와 비밀번호가 기준에 맞는 경우에만 로그인 버튼 색상이 활성화될 수 있도록 해주세요.
+- ex. ID - `@` 포함 / PW - 5글자 이상
+- [삼항 연산자](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) 적용해서 조건에 따라 버튼 색상에 변화를 주시기 바랍니다.
+- 위 순서대로 완료 후 `Add : Mission 2 - 로그인 버튼 활성화 기능 구현` commit message를 남긴 후 push 해주세요.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Mission 3) Main | 댓글 기능
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 사용자가 댓글 입력 후 enter 를 누르거나 왼쪽의 버튼 클릭 시 댓글이 추가되도록 구현해주세요.
+- 댓글 기능을 구현하기 위해서는 배열 데이터 타입을 활용해야 합니다.
+- [Array.map](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map) 참고해서 시도해주세요.
+- 위 순서대로 완료 후 `Add : Mission 3 - 댓글 기능 구현` commit message를 남긴 후 push 해주세요.
 
-### `npm run eject`
+### Mission 4) Main | 댓글 컴포넌트화 + props로 데이터 전달
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- **map 함수를 활용해 댓글 목록을 구현해주세요.**
+- 댓글 하나를 컴포넌트화 시켜주세요.
+- 부모의 `state` 에 저장된 댓글 데이터에 `Array.map()` 메소드를 적용해 댓글의 개수만큼 댓글 컴포넌트가 나타나게 해주세요.
+- 필요한 데이터를 `props` 로 넘겨주세요.
+- 기존에 보였던 대로 댓글이 화면에 나타나면 과제 완료입니다.
+- 위 순서대로 완료 후 `Add : Mission 4 - 댓글 컴포넌트화, props로 데이터 전달 구현` commit message를 남긴 후 push 해주세요.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Mission 5) map 함수 적용시 key props를 부여하는 이유
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- 위 공식문서를 참고하여 `map 함수 적용시 key props를 부여하는 이유`에 대해 블로그를 작성해주세요.
+- 본인이 작성한 map 함수 사용 코드를 예시로 활용하여 설명해주세요.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 작업기간
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 2021.05.26 - 2021~
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 기술 Stack
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- HTML, CSS
+- JavaScript(ES6+)
+- React
+- SCSS
+- JSON
 
-### Analyzing the Bundle Size
+## 팀원
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 전건우
+- 이상훈
+- 박현찬
