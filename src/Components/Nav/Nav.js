@@ -4,7 +4,7 @@ import './Nav.scss';
 class Nav extends React.Component {
   render() {
     return (
-      <nav>
+      <nav className="Nav">
         <section id="nav-section">
           <h1 className="title">westagram</h1>
           <div id="serch">
@@ -61,7 +61,7 @@ class Nav extends React.Component {
             </a>
             <a href="/">
               <div className="profile-image">
-                <img src="images/profile/me.jpeg" alt="me" />
+                <img src="images/sanghunlee/selfie.jpeg" alt="me" />
               </div>
             </a>
           </div>
