@@ -61,7 +61,7 @@ class Nav extends React.Component {
             </a>
             <a href="/">
               <div className="profile-image">
-                <img src="images/profile/me.jpeg" alt="me" />
+                <img src="images/geonwoojeon/images/profile/me.jpeg" alt="me" />
               </div>
             </a>
           </div>

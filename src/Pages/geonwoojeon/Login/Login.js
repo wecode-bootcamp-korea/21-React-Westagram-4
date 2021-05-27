@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 
 class LoginWoo extends React.Component {
   goToMain = () => {
-    this.props.history.push('/main-geonwoo');
+    this.props.history.push('/mainwoo');
   };
 
   render() {
@@ -44,7 +44,10 @@ class LoginWoo extends React.Component {
               id="facebooke-login"
             >
               <span>
-                <img src="images/icon/facebook.png" alt="facebook" />
+                <img
+                  src="/images/geonwoojeon/images/icon/facebook.png"
+                  alt="facebook"
+                />
               </span>
               Facebook으로 로그인
             </button>

@@ -18,14 +18,14 @@ class Main extends React.Component {
                         <a href="/">
                           <img
                             className="story-profile"
-                            src="images/profile/1.jpeg"
+                            src="images/geonwoojeon/images/profile/1.jpeg"
                             alt="1"
                           />
                         </a>
                         <span className="story-ID">j_u_n98</span>
                         <img
                           className="stroy-ring"
-                          src="images/icon/Instagram_Stories_ring.svg"
+                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                           alt=""
                         />
                       </li>
@@ -33,14 +33,14 @@ class Main extends React.Component {
                         <a href="/">
                           <img
                             className="story-profile"
-                            src="images/profile/2.jpeg"
+                            src="images/geonwoojeon/images/profile/2.jpeg"
                             alt="2"
                           />
                         </a>
                         <span className="story-ID">eru77</span>
                         <img
                           className="stroy-ring"
-                          src="images/icon/Instagram_Stories_ring.svg"
+                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                           alt=""
                         />
                       </li>
@@ -48,14 +48,14 @@ class Main extends React.Component {
                         <a href="/">
                           <img
                             className="story-profile"
-                            src="images/profile/3.jpeg"
+                            src="images/geonwoojeon/images/profile/3.jpeg"
                             alt="3"
                           />
                         </a>
                         <span className="story-ID">rktbs1</span>
                         <img
                           className="stroy-ring"
-                          src="images/icon/Instagram_Stories_ring.svg"
+                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                           alt=""
                         />
                       </li>
@@ -63,14 +63,14 @@ class Main extends React.Component {
                         <a href="/">
                           <img
                             className="story-profile"
-                            src="images/profile/4.jpeg"
+                            src="images/geonwoojeon/images/profile/4.jpeg"
                             alt="4"
                           />
                         </a>
                         <span className="story-ID">gemsto..</span>
                         <img
                           className="stroy-ring"
-                          src="images/icon/Instagram_Stories_ring.svg"
+                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                           alt=""
                         />
                       </li>
@@ -78,14 +78,14 @@ class Main extends React.Component {
                         <a href="/">
                           <img
                             className="story-profile"
-                            src="images/profile/5.jpeg"
+                            src="images/geonwoojeon/images/profile/5.jpeg"
                             alt="5"
                           />
                         </a>
                         <span className="story-ID">l_s._</span>
                         <img
                           className="stroy-ring"
-                          src="images/icon/Instagram_Stories_ring.svg"
+                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                           alt=""
                         />
                       </li>
@@ -93,14 +93,14 @@ class Main extends React.Component {
                         <a href="/">
                           <img
                             className="story-profile"
-                            src="images/profile/6.jpeg"
+                            src="images/geonwoojeon/images/profile/6.jpeg"
                             alt="6"
                           />
                         </a>
                         <span className="story-ID">aydddd__</span>
                         <img
                           className="stroy-ring"
-                          src="images/icon/Instagram_Stories_ring.svg"
+                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                           alt=""
                         />
                       </li>
@@ -108,14 +108,14 @@ class Main extends React.Component {
                         <a href="/">
                           <img
                             className="story-profile"
-                            src="images/profile/7.jpeg"
+                            src="images/geonwoojeon/images/profile/7.jpeg"
                             alt="7"
                           />
                         </a>
                         <span className="story-ID">p_s_l.O</span>
                         <img
                           className="stroy-ring"
-                          src="images/icon/Instagram_Stories_ring.svg"
+                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                           alt=""
                         />
                       </li>
@@ -123,14 +123,14 @@ class Main extends React.Component {
                         <a href="/">
                           <img
                             className="story-profile"
-                            src="images/profile/8.jpeg"
+                            src="images/geonwoojeon/images/profile/8.jpeg"
                             alt="8"
                           />
                         </a>
                         <span className="story-ID">cdaa_p</span>
                         <img
                           className="stroy-ring"
-                          src="images/icon/Instagram_Stories_ring.svg"
+                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                           alt=""
                         />
                       </li>
@@ -144,9 +144,12 @@ class Main extends React.Component {
                   <article>
                     <div className="article-head">
                       <a href="/" className="article-profile">
-                        <img src="images/profile/me.jpeg" alt="" />
                         <img
-                          src="images/icon/Instagram_Stories_ring.svg"
+                          src="images/geonwoojeon/images/profile/me.jpeg"
+                          alt=""
+                        />
+                        <img
+                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                           alt=""
                         />
                         <span className="article-ID">raing_8</span>
@@ -182,7 +185,10 @@ class Main extends React.Component {
                       </svg>
                     </div>
                     <div className="article-body">
-                      <img src="images/feed/ipad2.jpeg" alt="2" />
+                      <img
+                        src="images/geonwoojeon/images/feed/ipad2.jpeg"
+                        alt="2"
+                      />
                     </div>
                     <div className="article-bottom">
                       <div className="article-bottom-icon">
@@ -330,9 +336,12 @@ class Main extends React.Component {
                   <article>
                     <div className="article-head">
                       <a href="/" className="article-profile">
-                        <img src="images/profile/1.jpeg" alt="" />
                         <img
-                          src="images/icon/Instagram_Stories_ring.svg"
+                          src="images/geonwoojeon/images/profile/1.jpeg"
+                          alt=""
+                        />
+                        <img
+                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                           alt=""
                         />
                         <span className="article-ID">dda_._._asa</span>
@@ -368,7 +377,10 @@ class Main extends React.Component {
                       </svg>
                     </div>
                     <div className="article-body">
-                      <img src="images/feed/ka1.jpeg" alt="2" />
+                      <img
+                        src="images/geonwoojeon/images/feed/ka1.jpeg"
+                        alt="2"
+                      />
                     </div>
                     <div className="article-bottom">
                       <div className="article-bottom-icon">
@@ -516,9 +528,12 @@ class Main extends React.Component {
                   <article>
                     <div className="article-head">
                       <a href="/" className="article-profile">
-                        <img src="images/profile/1.jpeg" alt="" />
                         <img
-                          src="images/icon/Instagram_Stories_ring.svg"
+                          src="images/geonwoojeon/images/profile/1.jpeg"
+                          alt=""
+                        />
+                        <img
+                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                           alt=""
                         />
                         <span className="article-ID">dlsamm66</span>
@@ -554,7 +569,10 @@ class Main extends React.Component {
                       </svg>
                     </div>
                     <div className="article-body">
-                      <img src="images/feed/cho.jpeg" alt="2" />
+                      <img
+                        src="images/geonwoojeon/images/feed/cho.jpeg"
+                        alt="2"
+                      />
                     </div>
                     <div className="article-bottom">
                       <div className="article-bottom-icon">
@@ -701,7 +719,10 @@ class Main extends React.Component {
               <div id="main-right">
                 <div className="main-right-profile">
                   <div className="main-right-profile-image">
-                    <img src="images/profile/me.jpeg" alt="me" />
+                    <img
+                      src="images/geonwoojeon/images/profile/me.jpeg"
+                      alt="me"
+                    />
                   </div>
                   <div className="main-right-profile-nickname">
                     raing_8
@@ -715,7 +736,10 @@ class Main extends React.Component {
                 </div>
                 <div className="main-right-follow">
                   <div className="main-right-follow-image">
-                    <img src="images/profile/10.jpeg" alt="10" />
+                    <img
+                      src="images/geonwoojeon/images/profile/10.jpeg"
+                      alt="10"
+                    />
                   </div>
                   <div className="main-right-follow-nickname">
                     c.zOOOn
@@ -727,7 +751,10 @@ class Main extends React.Component {
                 </div>
                 <div className="main-right-follow">
                   <div className="main-right-follow-image">
-                    <img src="images/profile/5.jpeg" alt="5" />
+                    <img
+                      src="images/geonwoojeon/images/profile/5.jpeg"
+                      alt="5"
+                    />
                   </div>
                   <div className="main-right-follow-nickname">
                     heong.as
@@ -739,8 +766,14 @@ class Main extends React.Component {
                 </div>
                 <div className="main-right-follow">
                   <div className="main-right-follow-image">
-                    <img src="images/profile/8.jpeg" alt="8" />
-                    <img src="images/icon/Instagram_Stories_ring.svg" alt="" />
+                    <img
+                      src="images/geonwoojeon/images/profile/8.jpeg"
+                      alt="8"
+                    />
+                    <img
+                      src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
+                      alt=""
+                    />
                   </div>
                   <div className="main-right-follow-nickname">
                     csdn_93
@@ -752,7 +785,10 @@ class Main extends React.Component {
                 </div>
                 <div className="main-right-follow">
                   <div className="main-right-follow-image">
-                    <img src="images/profile/11.jpeg" alt="11" />
+                    <img
+                      src="images/geonwoojeon/images/profile/11.jpeg"
+                      alt="11"
+                    />
                   </div>
                   <div className="main-right-follow-nickname">
                     hy_min._.
@@ -764,7 +800,10 @@ class Main extends React.Component {
                 </div>
                 <div className="main-right-follow">
                   <div className="main-right-follow-image">
-                    <img src="images/profile/5.jpeg" alt="5" />
+                    <img
+                      src="images/geonwoojeon/images/profile/5.jpeg"
+                      alt="5"
+                    />
                   </div>
                   <div className="main-right-follow-nickname">
                     ahffkdb

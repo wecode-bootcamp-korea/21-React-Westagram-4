@@ -22,6 +22,7 @@ nav {
     .title {
       margin: 0;
       font-size: 30px;
+      font-weight: 400;
       font-family: 'Lobster', cursive;
     }
 
@@ -42,6 +43,29 @@ nav {
         color: #8e8e8e;
         font-size: $middle-font;
         font-weight: 300;
+      }
+    }
+
+    .path-icon {
+      display: flex;
+
+      a {
+        margin-left: 24px;
+        background-color: transparent;
+        border: none;
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        .profile-image {
+          width: 22px;
+          height: 22px;
+
+          img {
+            border-radius: 50%;
+          }
+        }
       }
     }
   }
