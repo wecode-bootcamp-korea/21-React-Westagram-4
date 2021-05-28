@@ -1,10 +1,77 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import './Login.css';
+import { withRouter } from 'react-router';
 import './Login.scss';
 
 class Login extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { userId: '', userPw: '' };
+  }
+
+  //TODO : validate id pw 로직이 같으므로 하나의 함수로 커스텀 해보기
+  validate = (value, regExp) => {
+    const reg = new RegExp(regExp);
+    let isValid = false;
+    if (reg.test(value)) isValid = true;
+    return isValid;
+  };
+
+  validateId = email => {
+    const emailRegExp =
+      /[a-zA-Z0-9.-_+!]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]{2,}(?:.[a-zA-Z0-9]{2,3})?/;
+    let isValidEmail = false;
+    const idRegExp = new RegExp(emailRegExp);
+
+    if (idRegExp.test(email)) {
+      isValidEmail = true;
+    }
+    return isValidEmail;
+  };
+
+  validatePassword = password => {
+    const passwordRegExp = /[a-zA-Z0-9]{5,100}/;
+    let isValidPassword = false;
+    const pwRegExp = new RegExp(passwordRegExp);
+
+    if (pwRegExp.test(password)) {
+      isValidPassword = true;
+    }
+    return isValidPassword;
+  };
+
+  validateInputData = (id, pw) => {
+    return this.validateId(id) && this.validatePassword(pw);
+  };
+
+  handleInput = e => {
+    this.setState(
+      {
+        [e.target.name]: e.target.value,
+      },
+      () => {
+        this.validateInputData(this.state.userId, this.state.userPw);
+      }
+    );
+  };
+
+  handleSubmit = e => {
+    console.log('submit');
+
+    e.preventDefault();
+    // validateInputData(this.state.userId, this.userPw);
+
+    // 서버로 로그인 인증 요청/응답에 대한 로직 필요
+    // TODO: dummyData로 구현하기
+
+    this.props.history.push('/main');
+  };
+
   render() {
+    const { userId, userPw } = this.state;
+    const isDisable = this.validateInputData(userId, userPw) ? false : true;
+
     return (
       <>
         <section className="entire-container">
@@ -13,20 +80,28 @@ class Login extends React.Component {
               <div className="login_container">
                 <h1>westagram</h1>
                 <div className="form_container">
-                  <form action="submit">
+                  <form onSubmit={this.handleSubmit}>
                     <input
                       type="text"
+                      name="userId"
                       placeholder="전화번호, 사용자 이름 또는 이메일"
+                      value={this.state.userId}
+                      onChange={this.handleInput}
                     />
                     <input
                       type="password"
-                      name=""
-                      id=""
+                      name="userPw"
                       placeholder="비밀번호"
+                      value={this.state.userPw}
+                      onChange={this.handleInput}
                     />
                     <Link to="/main">
-                      {/* <button className="login-button" type="submit" disabled> */}
-                      <button className="login-button" type="submit">
+                      <button
+                        className="login-button"
+                        type="submit"
+                        disabled={isDisable}
+                        onClick={this.handleSubmit}
+                      >
                         로그인
                       </button>
                     </Link>
@@ -68,4 +143,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);

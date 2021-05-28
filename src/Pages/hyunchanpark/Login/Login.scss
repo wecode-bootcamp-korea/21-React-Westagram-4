@@ -17,6 +17,9 @@ $border-default-set: 1px solid #dbdbdb;
   line-height: $lineHeight;
 }
 
+button {
+  cursor: pointer;
+}
 .entire-container {
   @include flex-set();
   width: 100%;
@@ -78,10 +81,11 @@ $border-default-set: 1px solid #dbdbdb;
                 border-radius: 4px;
                 color: #fff;
                 font-weight: $font-bold-weight;
-                opacity: 0.3;
+                opacity: 1;
 
                 &:disabled {
                   cursor: none;
+                  opacity: 0.3;
                 }
               }
             }
