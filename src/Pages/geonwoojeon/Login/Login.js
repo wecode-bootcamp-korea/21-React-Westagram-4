@@ -53,6 +53,12 @@ class LoginWoo extends React.Component {
               type="button"
               id="login-button"
               value="0"
+              disabled={
+                !(
+                  this.state.idValue.includes('@') &&
+                  this.state.pwValue.length >= 5
+                )
+              }
             >
               로그인
             </button>
