@@ -3,6 +3,26 @@ import './Login.scss';
 import { Link, withRouter } from 'react-router-dom';
 
 class LoginWoo extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      idValue: '',
+      pwValue: '',
+    };
+  }
+
+  handleIdInput = event => {
+    this.setState({
+      idValue: event.target.value,
+    });
+  };
+
+  handlePwInput = event => {
+    this.setState({
+      pwValue: event.target.value,
+    });
+  };
+
   goToMain = () => {
     this.props.history.push('/mainwoo');
   };
@@ -15,11 +35,14 @@ class LoginWoo extends React.Component {
             <h1 className="title">westagram</h1>
             <form className="input-boxes">
               <input
+                onChange={this.handleIdInput}
+                value={this.state.value}
                 id="email-input-box"
                 type="text"
                 placeholder="전화번호, 사용자 이름 또는 이메일"
               />
               <input
+                onChange={this.handlePwInput}
                 id="password-input-box"
                 type="password"
                 placeholder="비밀번호"
