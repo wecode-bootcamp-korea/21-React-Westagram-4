@@ -282,8 +282,8 @@ class Main extends Component {
                               </span>
                             </div>
                           </div>
-                          <Comment />
-                          {this.state.commentList.map((value, index) => {
+                          <Comment commentList={this.state.commentList} />
+                          {/*{this.state.commentList.map((value, index) => {
                             return (
                               <div className="feedParaSub" key={index}>
                                 <div className="paraCommentWrap">
@@ -319,7 +319,7 @@ class Main extends Component {
                                 </span>
                               </div>
                             );
-                          })}
+                          })}*/}
                         </div>
                       </div>
                     </section>
