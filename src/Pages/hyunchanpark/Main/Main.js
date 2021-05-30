@@ -1,9 +1,101 @@
 import React from 'react';
 import Nav from '../../../Components/Nav/Nav';
+import Comment from './Comment';
+
 import './Main.scss';
 
 class Main extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      commentList: [
+        {
+          seqNum: 1,
+          userId: 'rinmi_kun',
+          commentText: ' It’s looks like a painting at first',
+          Likers: ['whois?', 'hyunchan'],
+        },
+        {
+          seqNum: 2,
+          userId: 'whois?',
+          commentText: 'fucking',
+          Likers: [],
+        },
+        {
+          seqNum: 3,
+          userId: 'hyunchan',
+          commentText: 'awesome',
+          Likers: ['hyunchan'],
+        },
+        {
+          seqNum: 4,
+          userId: 'geonwoo',
+          commentText: 'pretty',
+          Likers: [],
+        },
+        {
+          seqNum: 5,
+          userId: 'sanghun',
+          commentText: 'handsome',
+          Likers: ['hyunchan'],
+        },
+        {
+          seqNum: 6,
+          userId: 'hyunchan',
+          commentText: 'awesome',
+          Likers: [],
+        },
+      ],
+      commentText: '',
+      isCommentSubmitDisable: true,
+    };
+  }
+
+  onCommentText = e => {
+    this.setState({ commentText: e.target.value });
+  };
+
+  onSubmitCommentForm = e => {
+    e.preventDefault();
+    const { commentList, commentText } = this.state;
+    if (commentText === '') return;
+
+    this.setState({
+      commentList: [
+        ...commentList,
+        {
+          seqNum: commentList[commentList.length - 1].seqNum + 1,
+          userId: 'hyunchan',
+          commentText: commentText.trim(),
+          Likers: [],
+        },
+      ],
+      commentText: '',
+    });
+  };
+
+  onRemoveComment = e => {
+    const { commentList } = this.state;
+
+    this.setState({
+      commentList: commentList.filter(
+        comment => comment.seqNum !== Number(e.target.id)
+      ),
+    });
+  };
+
+  onToggleLike = e => {
+    this.setState({
+      Likers: this.state.Likers.concat(['hyunchan']),
+    });
+  };
+
   render() {
+    const { commentList, commentText } = this.state;
+
+    const isCommentBtnDisable =
+      this.state.commentText.length > 0 ? false : true;
     return (
       <>
         <Nav />
@@ -216,29 +308,18 @@ class Main extends React.Component {
                         </div>
 
                         <div className="other-comments">
-                          <div className="comment">
-                            <div className="comment-content">
-                              <a href="/" className="comment-id">
-                                rinmi_kun
-                              </a>
-                              <span> It’s looks like a painting at first </span>
-                            </div>
-                            <button>
-                              <i className="far fa-heart"></i>
-                            </button>
-                          </div>
-
-                          <div className="comment">
-                            <div className="comment-content">
-                              <a href="/" className="comment-id">
-                                whois?
-                              </a>
-                              <span>fucking</span>
-                            </div>
-                            <button>
-                              <i className="fas fa-heart"></i>
-                            </button>
-                          </div>
+                          {commentList.map((comment, i) => (
+                            <Comment
+                              key={i}
+                              seqNum={comment.seqNum}
+                              userId={comment.userId}
+                              username={comment.username}
+                              commentText={comment.commentText}
+                              Likers={comment.Likers}
+                              onToggleLike={this.onToggleLike}
+                              onRemoveComment={this.onRemoveComment}
+                            />
+                          ))}
                         </div>
 
                         <div className="time-container">
@@ -257,7 +338,10 @@ class Main extends React.Component {
 
                     <div className="post-comment">
                       <div className="comment-form-container">
-                        <form className="comment-form">
+                        <form
+                          className="comment-form"
+                          onSubmit={this.onSubmitCommentForm}
+                        >
                           <button className="emoji-button">
                             <div className="svg">
                               <svg
@@ -276,6 +360,8 @@ class Main extends React.Component {
                           <input
                             type="text"
                             className="comment-input"
+                            value={commentText}
+                            onChange={this.onCommentText}
                             aria-label="댓글 달기..."
                             placeholder="댓글 달기..."
                             autoComplete="off"
@@ -284,7 +370,7 @@ class Main extends React.Component {
                           <button
                             className="post-button"
                             type="submit"
-                            disabled
+                            disabled={isCommentBtnDisable}
                           >
                             게시
                           </button>
