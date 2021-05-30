@@ -10,14 +10,6 @@ class Login extends React.Component {
     this.state = { userId: '', userPw: '' };
   }
 
-  //TODO : validate id pw 로직이 같으므로 하나의 함수로 커스텀 해보기
-  validate = (value, regExp) => {
-    const reg = new RegExp(regExp);
-    let isValid = false;
-    if (reg.test(value)) isValid = true;
-    return isValid;
-  };
-
   validateId = email => {
     const emailRegExp =
       /[a-zA-Z0-9.-_+!]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]{2,}(?:.[a-zA-Z0-9]{2,3})?/;
@@ -60,17 +52,14 @@ class Login extends React.Component {
     console.log('submit');
 
     e.preventDefault();
-    // validateInputData(this.state.userId, this.userPw);
-
-    // 서버로 로그인 인증 요청/응답에 대한 로직 필요
-    // TODO: dummyData로 구현하기
+    if (this.validateInputData(this.state.userId, this.userPw)) return;
 
     this.props.history.push('/main');
   };
 
   render() {
     const { userId, userPw } = this.state;
-    const isDisable = this.validateInputData(userId, userPw) ? false : true;
+    const isDisabled = this.validateInputData(userId, userPw) ? false : true;
 
     return (
       <>
@@ -99,7 +88,7 @@ class Login extends React.Component {
                       <button
                         className="login-button"
                         type="submit"
-                        disabled={isDisable}
+                        disabled={isDisabled}
                         onClick={this.handleSubmit}
                       >
                         로그인
