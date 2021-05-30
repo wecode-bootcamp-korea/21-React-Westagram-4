@@ -3,6 +3,28 @@ import './Main.scss';
 import Nav from '../../../Components/Nav/Nav';
 
 class Main extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      comment: '',
+      commentList: [],
+    };
+  }
+
+  inputComment = event => {
+    this.setState({
+      comment: event.target.value,
+    });
+    console.log(this.state.comment);
+  };
+
+  postComment = () => {
+    this.setState({
+      commentList: this.state.commentList.concat([this.state.comment]),
+      comment: '',
+    });
+  };
+
   render() {
     return (
       <>
@@ -297,6 +319,30 @@ class Main extends React.Component {
                             </svg>
                           </span>
                         </div>
+                        <div>
+                          {this.state.commentList.map((comment, index) => {
+                            return (
+                              <div
+                                className="article-bottom-comment text"
+                                key={index}
+                              >
+                                raing_8<span> {comment}</span>
+                                <span>
+                                  <i class="fas fa-times"></i>
+                                  <svg
+                                    className="article-bottom-comment heart"
+                                    aria-label="좋아요"
+                                    height="12"
+                                    viewBox="0 0 48 48"
+                                    width="12"
+                                  >
+                                    <path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path>
+                                  </svg>
+                                </span>
+                              </div>
+                            );
+                          })}
+                        </div>
                       </div>
                       <div className="article-bottom-past-time">3시간 전</div>
                       <div className="article-bottom-input">
@@ -315,18 +361,23 @@ class Main extends React.Component {
                             <path d="M34.9 24c0-1.4-1.1-2.5-2.5-2.5s-2.5 1.1-2.5 2.5 1.1 2.5 2.5 2.5 2.5-1.1 2.5-2.5zm-21.8 0c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5-2.5-1.1-2.5-2.5zM24 37.3c-5.2 0-8-3.5-8.2-3.7-.5-.6-.4-1.6.2-2.1.6-.5 1.6-.4 2.1.2.1.1 2.1 2.5 5.8 2.5 3.7 0 5.8-2.5 5.8-2.5.5-.6 1.5-.7 2.1-.2.6.5.7 1.5.2 2.1 0 .2-2.8 3.7-8 3.7z"></path>
                           </svg>
                         </button>
-                        <input
-                          className="article-bottom-input-comment"
-                          type="text"
-                          placeholder="댓글 달기.."
-                        />
-                        <button
-                          type="button"
-                          className="article-bottom-input-posting"
-                          disabled
-                        >
-                          게시
-                        </button>
+                        <form>
+                          <input
+                            className="article-bottom-input-comment"
+                            type="text"
+                            placeholder="댓글 달기.."
+                            value={this.state.comment}
+                            onChange={this.inputComment}
+                          />
+                          <button
+                            type="submit"
+                            className="article-bottom-input-posting"
+                            disabled={this.state.comment.length < 1}
+                            onClick={this.postComment}
+                          >
+                            게시
+                          </button>
+                        </form>
                       </div>
                     </div>
                   </article>
@@ -489,6 +540,30 @@ class Main extends React.Component {
                             </svg>
                           </span>
                         </div>
+                        <div>
+                          {this.state.commentList.map((comment, index) => {
+                            return (
+                              <div
+                                className="article-bottom-comment text"
+                                key={index}
+                              >
+                                raing_8<span> {comment}</span>
+                                <span>
+                                  <i class="fas fa-times"></i>
+                                  <svg
+                                    className="article-bottom-comment heart"
+                                    aria-label="좋아요"
+                                    height="12"
+                                    viewBox="0 0 48 48"
+                                    width="12"
+                                  >
+                                    <path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path>
+                                  </svg>
+                                </span>
+                              </div>
+                            );
+                          })}
+                        </div>
                       </div>
                       <div className="article-bottom-past-time">1일 전</div>
                       <div className="article-bottom-input">
@@ -507,18 +582,23 @@ class Main extends React.Component {
                             <path d="M34.9 24c0-1.4-1.1-2.5-2.5-2.5s-2.5 1.1-2.5 2.5 1.1 2.5 2.5 2.5 2.5-1.1 2.5-2.5zm-21.8 0c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5-2.5-1.1-2.5-2.5zM24 37.3c-5.2 0-8-3.5-8.2-3.7-.5-.6-.4-1.6.2-2.1.6-.5 1.6-.4 2.1.2.1.1 2.1 2.5 5.8 2.5 3.7 0 5.8-2.5 5.8-2.5.5-.6 1.5-.7 2.1-.2.6.5.7 1.5.2 2.1 0 .2-2.8 3.7-8 3.7z"></path>
                           </svg>
                         </button>
-                        <input
-                          className="article-bottom-input-comment"
-                          type="text"
-                          placeholder="댓글 달기.."
-                        />
-                        <button
-                          type="button"
-                          className="article-bottom-input-posting"
-                          disabled
-                        >
-                          게시
-                        </button>
+                        <form>
+                          <input
+                            className="article-bottom-input-comment"
+                            type="text"
+                            placeholder="댓글 달기.."
+                            value={this.state.comment}
+                            onChange={this.inputComment}
+                          />
+                          <button
+                            type="submit"
+                            className="article-bottom-input-posting"
+                            disabled={this.state.comment.length < 1}
+                            onClick={this.postComment}
+                          >
+                            게시
+                          </button>
+                        </form>
                       </div>
                     </div>
                   </article>
@@ -681,6 +761,30 @@ class Main extends React.Component {
                             </svg>
                           </span>
                         </div>
+                        <div>
+                          {this.state.commentList.map((comment, index) => {
+                            return (
+                              <div
+                                className="article-bottom-comment text"
+                                key={index}
+                              >
+                                raing_8<span> {comment}</span>
+                                <span>
+                                  <i class="fas fa-times"></i>
+                                  <svg
+                                    className="article-bottom-comment heart"
+                                    aria-label="좋아요"
+                                    height="12"
+                                    viewBox="0 0 48 48"
+                                    width="12"
+                                  >
+                                    <path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path>
+                                  </svg>
+                                </span>
+                              </div>
+                            );
+                          })}
+                        </div>
                       </div>
                       <div className="article-bottom-past-time">20분 전</div>
                       <div className="article-bottom-input">
@@ -699,18 +803,23 @@ class Main extends React.Component {
                             <path d="M34.9 24c0-1.4-1.1-2.5-2.5-2.5s-2.5 1.1-2.5 2.5 1.1 2.5 2.5 2.5 2.5-1.1 2.5-2.5zm-21.8 0c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5-2.5-1.1-2.5-2.5zM24 37.3c-5.2 0-8-3.5-8.2-3.7-.5-.6-.4-1.6.2-2.1.6-.5 1.6-.4 2.1.2.1.1 2.1 2.5 5.8 2.5 3.7 0 5.8-2.5 5.8-2.5.5-.6 1.5-.7 2.1-.2.6.5.7 1.5.2 2.1 0 .2-2.8 3.7-8 3.7z"></path>
                           </svg>
                         </button>
-                        <input
-                          className="article-bottom-input-comment"
-                          type="text"
-                          placeholder="댓글 달기.."
-                        />
-                        <button
-                          type="button"
-                          className="article-bottom-input-posting"
-                          disabled
-                        >
-                          게시
-                        </button>
+                        <form>
+                          <input
+                            className="article-bottom-input-comment"
+                            type="text"
+                            placeholder="댓글 달기.."
+                            value={this.state.comment}
+                            onChange={this.inputComment}
+                          />
+                          <button
+                            type="submit"
+                            className="article-bottom-input-posting"
+                            disabled={this.state.comment.length < 1}
+                            onClick={this.postComment}
+                          >
+                            게시
+                          </button>
+                        </form>
                       </div>
                     </div>
                   </article>
