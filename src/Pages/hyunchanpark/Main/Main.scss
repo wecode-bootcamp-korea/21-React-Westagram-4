@@ -1,299 +1,29 @@
+@import '../Styles/common.scss';
+
 body {
-  background-color: #fafafa;
+  background-color: $background-default-color;
   overflow-y: scroll;
 }
 
-.nav-container {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 54px;
-  border-bottom: 1px solid #dbdbdb;
-  background-color: #fff;
-  z-index: 10;
-
-  .nav-contents {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 975px;
-    height: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
-
-    .nav-logo {
-      color: rgb(38, 38, 38);
-      font-size: 24px;
-      font-family: 'Lobster', cursive;
-
-      a {
-        color: rgb(38, 38, 38);
-        font-size: 24px;
-        font-family: 'Lobster', cursive;
-      }
-    }
-
-    .nav-search-bar {
-      position: relative;
-      width: 215px;
-      height: 28px;
-
-      .active-input {
-        width: 100%;
-        height: 100%;
-        padding: 3px 10px 3px 26px;
-        border: solid 1px #dbdbdb;
-        border-radius: 3px;
-        color: #8e8e8e;
-        font-size: 16px;
-        background: #fafafa;
-        outline: none;
-
-        &::placeholder {
-          font-size: 14px;
-        }
-      }
-
-      .input-search-icon {
-        position: absolute;
-        top: 9px;
-        left: 11px;
-        width: 10px;
-        height: 10px;
-      }
-
-      .input-cancle {
-        position: absolute;
-        top: 7px;
-        right: 5px;
-        width: 14px;
-        height: 14px;
-      }
-
-      .inactive-input {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: solid 1px #dbdbdb;
-        border-radius: 3px;
-        background: #fafafa;
-        cursor: text;
-
-        .inactive-search-icon {
-          display: inline-block;
-          width: 10px;
-          height: 10px;
-          margin-right: 6px;
-        }
-
-        .search-word {
-          color: #8e8e8e;
-        }
-      }
-
-      .search-results-container {
-        visibility: hidden;
-        width: 375px;
-        height: 362px;
-        position: relative;
-        top: 12px;
-        margin-left: -80px;
-
-        .rotate {
-          position: absolute;
-          top: -8px;
-          left: 50%;
-          width: 14px;
-          height: 14px;
-          border-top: 1px solid rgba(0, 0, 0, 10%);
-          border-left: 1px solid rgba(0, 0, 0, 10%);
-          transform: rotate(45deg);
-        }
-
-        .search-results {
-          width: 100%;
-          height: 100%;
-          padding: 12px 0 0 0;
-          box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
-          overflow-x: hidden;
-          overflow-y: scroll;
-
-          .results-container {
-            .results {
-              padding: 8px 16px;
-              cursor: pointer;
-
-              .result {
-                display: flex;
-
-                img {
-                  width: 44px;
-                  height: 44px;
-                  margin-right: 12px;
-                  border: 1px solid rgba(0, 0, 0, 0.0975);
-                  border-radius: 50%;
-                  cursor: pointer;
-                }
-
-                .searched-user {
-                  display: flex;
-                  flex-direction: column;
-                  justify-content: center;
-
-                  .searched-username {
-                    font-weight: 600;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                  }
-
-                  span {
-                    color: #8e8e8e;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    .nav-icons-container {
-      display: flex;
-      position: relative;
-
-      .profile-menu-container {
-        display: flex;
-        position: absolute;
-        top: 36px;
-        border-radius: 6px;
-        visibility: hidden;
-        box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
-
-        .rotate {
-          position: absolute;
-          top: -8px;
-          left: 50%;
-          width: 14px;
-          height: 14px;
-          border-top: 1px solid rgba(0, 0, 0, 0.1);
-          border-left: 1px solid rgba(0, 0, 0, 0.1);
-          transform: rotate(45deg);
-
-          &.rectangle {
-            left: 202px;
-          }
-        }
-
-        .profile-menu {
-          width: 100%;
-
-          ul {
-            li {
-              .user-profile {
-                display: flex;
-                padding: 8px 16px;
-
-                svg {
-                  margin-right: 12px;
-                }
-
-                div {
-                  width: 170px;
-                  height: 28px;
-                }
-              }
-
-              &:last-child {
-                margin-bottom: 4px;
-              }
-            }
-          }
-        }
-      }
-
-      .nav-icons {
-        display: flex;
-
-        ul {
-          display: flex;
-
-          li {
-            font-size: 22px;
-            width: 22px;
-            height: 22px;
-            margin-left: 22px;
-
-            a {
-              .fas,
-              .far {
-                color: rgb(38, 38, 38);
-                font-size: 22px;
-              }
-
-              .fa-home:before {
-                content: '\f015';
-              }
-
-              .message-box-icon {
-                width: 22px;
-                height: 19px;
-              }
-
-              .fa-compass:before {
-                content: '\f14e';
-              }
-
-              .heart-icon {
-                width: 24px;
-                height: 21px;
-              }
-
-              .user-icon {
-                border: 1px solid #b6b6b6;
-                border-radius: 50%;
-                background-size: cover;
-                width: 22px;
-                height: 22px;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-// ---------------------------------------main--------------------
-
 .main-container {
-  background-color: #fafafa;
+  background-color: $background-default-color;
 
   .section-container {
     max-width: 935px;
     margin: 0 auto;
     padding-top: 70px;
-    background-color: #fafafa;
+    background-color: $background-default-color;
 
     .main-section {
       .left-contents {
-        float: left;
         width: 100%;
         max-width: 614px;
         margin-right: 28px;
-        background-color: #fafafa;
+        background-color: $background-default-color;
 
         .stories {
           height: 118px;
-          border: 1px solid #dbdbdb;
+          border: $border-default-set;
           border-radius: 3px;
           margin-bottom: 24px;
           margin-top: 0;
@@ -305,9 +35,7 @@ body {
             padding: 0 10px;
 
             .story {
-              display: flex;
-              flex-direction: column;
-              align-items: center;
+              @include flex-set(column, null, center);
               width: 80px;
               height: 100%;
 
@@ -321,9 +49,7 @@ body {
                   height: 100%;
 
                   .link-background {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
+                    @include flex-set(null, center, center);
                     width: 64px;
                     height: 64px;
                     margin: 0 auto;
@@ -347,41 +73,37 @@ body {
               }
 
               .story-name {
-                font-size: 14px;
+                font-size: $font-default-size;
               }
             }
           }
         }
 
         .feeds {
-          display: flex;
-          flex-direction: column;
+          @include flex-set(column, null, null);
           padding-top: 0px;
-          background-color: #fafafa;
+          background-color: $background-default-color;
 
           .feed {
             margin-bottom: 60px;
-            border: 1px solid #dbdbdb;
+            border: $border-default-set;
             border-radius: 3px;
             background: #fff;
 
             header {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
+              @include flex-set(null, space-between, center);
               height: 60px;
               padding: 16px;
               border-bottom: 1px solid #efefef;
               background-color: #fff;
 
               .header-contents-align {
-                display: flex;
-                align-items: center;
+                @include flex-set(null, null, center);
 
                 .user-image-container {
                   width: 32px;
                   height: 32px;
-                  border: 1px solid #dbdbdb;
+                  border: $border-default-set;
                   border-radius: 50%;
                   overflow: hidden;
 
@@ -396,26 +118,21 @@ body {
                   margin-left: 14px;
 
                   .user-info {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-
+                    @include flex-set(column, center, null);
                     .user-name {
-                      color: #262626;
-                      font-size: 14px;
-                      font-weight: 600;
+                      color: $font-default-color;
+                      font-size: $font-default-size;
+                      font-weight: $font-bold-weight;
                     }
 
                     .city {
-                      font-size: 12px;
+                      font-size: $font-small-size;
                     }
                   }
                 }
 
                 button {
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
+                  @include flex-set(null, center, center);
                   width: 40px;
                   height: 40px;
                   border: none;
@@ -435,17 +152,14 @@ body {
             }
 
             .comments {
-              display: flex;
-              flex-direction: column;
+              @include flex-set(column, null, null);
               width: 100%;
               margin-top: 4px;
               padding: 0 16px;
               background: #fff;
 
               .comments-icons {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+                @include flex-set(null, space-between, center);
                 position: relative;
                 margin-bottom: 5px;
 
@@ -502,20 +216,23 @@ body {
                 }
 
                 .other-comments {
-                  display: flex;
-                  flex-direction: column;
+                  @include flex-set(column, null, null);
 
                   .comment {
-                    display: flex;
-                    justify-content: space-between;
+                    @include flex-set(null, space-between, null);
 
                     .comment-content {
                       .comment-id {
+                        margin-right: 4px;
                         font-weight: 600;
                       }
                     }
 
                     button {
+                      i {
+                        margin-left: 6px;
+                      }
+
                       .fas {
                         color: red;
                       }
@@ -539,8 +256,7 @@ body {
               }
             }
             .post-comment {
-              display: flex;
-              align-items: center;
+              @include flex-set(null, null, center);
               min-height: 56px;
               margin-top: 4px;
               padding: 0 16px;
@@ -552,14 +268,11 @@ body {
                 width: 100%;
 
                 .comment-form {
-                  display: flex;
-                  justify-content: space-between;
-                  align-items: center;
+                  @include flex-set(null, space-between, center);
                   width: 100%;
 
                   .emoji-button {
-                    display: flex;
-                    align-items: center;
+                    @include flex-set(null, null, center);
                     width: 40px;
                     height: 40px;
                     padding: 8px 16px 8px 0;
@@ -578,12 +291,12 @@ body {
                     max-height: 80px;
                     padding: 0;
                     border: 0;
-                    color: #262626;
+                    color: $font-default-color;
                     outline: 0;
                     resize: none;
                     overflow-y: auto;
 
-                    &:placeholder-shown {
+                    &::placeholder {
                       color: #8e8e8e;
                     }
                   }
@@ -593,7 +306,7 @@ body {
                     height: 18px;
                     border: 0;
                     color: #0095f6;
-                    font-weight: 600;
+                    font-weight: $font-bold-weight;
                     background-color: #fff;
                     opacity: 1;
 
@@ -619,7 +332,7 @@ body {
 
         .right-contents {
           position: fixed;
-          background-color: #fafafa;
+          background-color: $background-default-color;
 
           .profile-container {
             display: flex;
@@ -664,7 +377,7 @@ body {
 
                 span {
                   color: #8e8e8e;
-                  font-size: 14px;
+                  font-size: $font-default-size;
                   line-height: 18px;
                   font-weight: 400;
                 }
@@ -693,21 +406,18 @@ body {
             }
 
             .recommend {
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-
+              @include flex-set(null, space-between, center);
               &.transparent {
                 background: transparent;
               }
 
               span {
                 color: #8e8e8e;
-                font-weight: 600;
+                font-weight: $font-bold-weight;
               }
 
               a {
-                font-weight: 600;
+                font-weight: $font-bold-weight;
               }
             }
 
@@ -716,8 +426,7 @@ body {
               padding-top: 8px;
 
               .recommend-item {
-                display: flex;
-                justify-content: space-between;
+                @include flex-set(null, space-between);
                 padding: 8px 0;
 
                 .item {
@@ -738,13 +447,12 @@ body {
                   }
 
                   .username {
-                    display: flex;
-                    flex-direction: column;
+                    @include flex-set(column, null, null);
                     padding-left: 10px;
-                    background-color: #fafafa;
+                    background-color: $background-default-color;
 
                     a {
-                      font-weight: 600;
+                      font-weight: $font-bold-weight;
                     }
 
                     span {
@@ -752,9 +460,7 @@ body {
                       width: 201px;
                       margin-top: 2px;
                       color: #8e8e8e;
-                      font-size: 12px;
-                      line-height: 14px;
-                      font-weight: 400;
+                      @include font-set($font-small-size, null, 14px);
                       overflow: hidden;
                       text-overflow: ellipsis;
                       white-space: nowrap;
@@ -764,9 +470,7 @@ body {
 
                 .follow-button {
                   color: #0095f6;
-                  font-size: 12px;
-                  line-height: 14px;
-                  font-weight: 600;
+                  @include font-set($font-small-size, $font-bold-weight, 14px);
                   margin: -2px 0 -3px;
                   border: none;
                 }
@@ -786,15 +490,10 @@ body {
                 white-space: nowrap;
 
                 a {
-                  font-size: 11px;
-                  font-weight: 400;
-                  line-height: 13px;
+                  @include font-set(11px, 400, 13px);
 
                   span {
                     color: #c7c7c7;
-                    font-size: 11px;
-                    font-weight: 400;
-                    line-height: 13px;
                     text-transform: uppercase;
                   }
 
@@ -813,9 +512,7 @@ body {
 
             span {
               color: #c7c7c7;
-              font-size: 11px;
-              font-weight: 400;
-              line-height: 13px;
+              @include font-set(11px, 400, 13px);
               text-transform: uppercase;
             }
           }

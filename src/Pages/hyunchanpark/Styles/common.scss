@@ -1,6 +1,5 @@
-$font-default-color: #262626;
-$font-default-size: 14px;
-$font-default-line-height: 18px;
+@import './_variable';
+@import './_mixin';
 
 * {
   padding: 0;
