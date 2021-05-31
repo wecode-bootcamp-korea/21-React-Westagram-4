@@ -1,10 +1,11 @@
 import React from 'react';
 
-class Comment extends React.Component {
+class PastComment extends React.Component {
   render() {
     return (
-      <div className="article-bottom-comment text" key={this.props.index}>
-        raing_8<span> {this.props.comment}</span>
+      <div className="article-bottom-comment text" key={this.props.key}>
+        {this.props.name}
+        <span> {this.props.comment}</span>
         <span>
           <i class="fas fa-times"></i>
           <svg
@@ -22,4 +23,4 @@ class Comment extends React.Component {
   }
 }
 
-export default Comment;
+export default PastComment;

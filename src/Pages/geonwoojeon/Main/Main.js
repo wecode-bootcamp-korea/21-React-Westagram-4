@@ -1,7 +1,8 @@
 import React from 'react';
 import './Main.scss';
 import Nav from '../../../Components/Nav/Nav';
-import Comment from '../Comment';
+import Comment from '../Components/Comment';
+import PastComment from '../Components/PastComment';
 
 class Main extends React.Component {
   constructor() {
@@ -9,6 +10,7 @@ class Main extends React.Component {
     this.state = {
       comment: '',
       commentList: [],
+      pastCommentList: [],
     };
   }
 
@@ -16,7 +18,6 @@ class Main extends React.Component {
     this.setState({
       comment: event.target.value,
     });
-    console.log(this.state.comment);
   };
 
   postComment = () => {
@@ -25,6 +26,18 @@ class Main extends React.Component {
       comment: '',
     });
   };
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/commentData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          pastCommentList: data,
+        });
+      });
+  }
 
   render() {
     return (
@@ -320,9 +333,24 @@ class Main extends React.Component {
                             </svg>
                           </span>
                         </div>
+                        {this.state.pastCommentList.map((comment, index) => {
+                          return (
+                            <PastComment
+                              name={comment.userName}
+                              comment={comment.content}
+                              key={index}
+                            />
+                          );
+                        })}
                         <div>
                           {this.state.commentList.map((comment, index) => {
-                            return <Comment comment={comment} index={index} />;
+                            return (
+                              <Comment
+                                name={'raing_8'}
+                                comment={comment}
+                                key={index}
+                              />
+                            );
                           })}
                         </div>
                       </div>
