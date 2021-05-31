@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "userName": "wecode",
+    "city": "KAYTRANADA",
+    "userImgSrc": "/images/hyunchanpark/images/insta-mini.jpg",
+    "feedImgSrc": "https://images.unsplash.com/photo-1621419079793-73020baef9eb?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "feedLike": false,
+    "feedLikeCounts": "216,608",
+    "content": "Welcome to world best coding bootcamp!"
+  },
+  {
+    "id": 2,
+    "userName": "instagram",
+    "city": "Norfolr, Uk",
+    "userImgSrc": "/images/hyunchanpark/images/insta-mini.jpg",
+    "feedImgSrc": "/images/hyunchanpark/images/women.jpg",
+    "feedLike": false,
+    "feedLikeCounts": "100,000",
+    "content": "Hi there."
+  },
+  {
+    "id": 3,
+    "userName": "IU",
+    "city": "seoul",
+    "userImgSrc": "/images/hyunchanpark/images/IU2.jpg",
+    "feedImgSrc": "/images/hyunchanpark/images/IU1.jpg",
+    "feedLike": true,
+    "feedLikeCounts": "1,111,111",
+    "content": "IU lovely"
+  }
+]

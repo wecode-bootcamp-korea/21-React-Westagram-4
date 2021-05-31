@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Comment from './Comment';
-import COMMENT from './commentData';
 import './Main.scss';
 
 class CommentList extends Component {
