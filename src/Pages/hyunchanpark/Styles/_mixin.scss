@@ -10,3 +10,9 @@
   font-weight: $weight;
   line-height: $lineHeight;
 }
+
+@mixin box-shadow($x, $y, $blur, $spread, $color, $inset: null) {
+  -webkit-box-shadow: $x $y $blur $spread $color $inset;
+  -moz-box-shadow: $x $y $blur $spread $color $inset;
+  box-shadow: $x $y $blur $spread $color $inset;
+}

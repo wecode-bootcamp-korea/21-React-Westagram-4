@@ -49,10 +49,9 @@ class Login extends React.Component {
   };
 
   handleSubmit = e => {
-    console.log('submit');
-
     e.preventDefault();
-    if (this.validateInputData(this.state.userId, this.userPw)) return;
+
+    if (!this.validateInputData(this.state.userId, this.state.userPw)) return;
 
     this.props.history.push('/main');
   };

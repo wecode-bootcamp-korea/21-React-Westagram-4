@@ -86,6 +86,7 @@ class Main extends React.Component {
   };
 
   onToggleLike = e => {
+    //TODO: like버튼 n depth obj state change
     this.setState({
       Likers: this.state.Likers.concat(['hyunchan']),
     });
