@@ -1,102 +1,11 @@
 import React from 'react';
 import Nav from '../../../Components/Nav/Nav';
-import Comment from './Comment';
+import CommentList from './CommentList';
 
 import './Main.scss';
 
 class Main extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      commentList: [
-        {
-          seqNum: 1,
-          userId: 'rinmi_kun',
-          commentText: ' It’s looks like a painting at first',
-          Likers: ['whois?', 'hyunchan'],
-        },
-        {
-          seqNum: 2,
-          userId: 'whois?',
-          commentText: 'fucking',
-          Likers: [],
-        },
-        {
-          seqNum: 3,
-          userId: 'hyunchan',
-          commentText: 'awesome',
-          Likers: ['hyunchan'],
-        },
-        {
-          seqNum: 4,
-          userId: 'geonwoo',
-          commentText: 'pretty',
-          Likers: [],
-        },
-        {
-          seqNum: 5,
-          userId: 'sanghun',
-          commentText: 'handsome',
-          Likers: ['hyunchan'],
-        },
-        {
-          seqNum: 6,
-          userId: 'hyunchan',
-          commentText: 'awesome',
-          Likers: [],
-        },
-      ],
-      commentText: '',
-      isCommentSubmitDisable: true,
-    };
-  }
-
-  onCommentText = e => {
-    this.setState({ commentText: e.target.value });
-  };
-
-  onSubmitCommentForm = e => {
-    e.preventDefault();
-    const { commentList, commentText } = this.state;
-    if (commentText === '') return;
-
-    this.setState({
-      commentList: [
-        ...commentList,
-        {
-          seqNum: commentList[commentList.length - 1].seqNum + 1,
-          userId: 'hyunchan',
-          commentText: commentText.trim(),
-          Likers: [],
-        },
-      ],
-      commentText: '',
-    });
-  };
-
-  onRemoveComment = e => {
-    const { commentList } = this.state;
-
-    this.setState({
-      commentList: commentList.filter(
-        comment => comment.seqNum !== Number(e.target.id)
-      ),
-    });
-  };
-
-  onToggleLike = e => {
-    //TODO: like버튼 n depth obj state change
-    this.setState({
-      Likers: this.state.Likers.concat(['hyunchan']),
-    });
-  };
-
   render() {
-    const { commentList, commentText } = this.state;
-
-    const isCommentBtnDisable =
-      this.state.commentText.length > 0 ? false : true;
     return (
       <>
         <Nav />
@@ -218,6 +127,7 @@ class Main extends React.Component {
                       />
                     </div>
 
+                    {/* TODO: comments -> feed로 변경하기 */}
                     <div className="comments">
                       <div className="comments-icons">
                         <div>
@@ -302,7 +212,7 @@ class Main extends React.Component {
                           <span>My freestyle riding represents who I am. </span>
                         </div>
 
-                        <div className="all-comments-show">
+                        {/* <div className="all-comments-show">
                           <a href="/">
                             댓글 <span>12,739</span>개 모두 보기
                           </a>
@@ -321,9 +231,10 @@ class Main extends React.Component {
                               onRemoveComment={this.onRemoveComment}
                             />
                           ))}
-                        </div>
+                        </div> */}
+                        <CommentList />
 
-                        <div className="time-container">
+                        {/* <div className="time-container">
                           <a href="/">
                             <time
                               className=""
@@ -333,11 +244,11 @@ class Main extends React.Component {
                               2일 전
                             </time>
                           </a>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
 
-                    <div className="post-comment">
+                    {/* <div className="post-comment">
                       <div className="comment-form-container">
                         <form
                           className="comment-form"
@@ -377,7 +288,7 @@ class Main extends React.Component {
                           </button>
                         </form>
                       </div>
-                    </div>
+                    </div> */}
                   </article>
                 </div>
               </div>
