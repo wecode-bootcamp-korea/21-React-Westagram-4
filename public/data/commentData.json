@@ -1,14 +1,68 @@
 [
   {
-    "userName": "wecode",
-    "content": "Welcome to world best coding bootcamp!"
+    "author": "raing_8",
+    "likeCount": "234",
+    "title": " 아이패드 드로잉🔥",
+    "commentCount": "9",
+    "img": "images/geonwoojeon/images/feed/ipad2.jpeg",
+    "profileImg": "images/geonwoojeon/images/profile/me.jpeg",
+    "comments": [
+      {
+        "userName": "Skd_d.s",
+        "content": "good~"
+      },
+      {
+        "userName": "m_M.M_mk",
+        "content": "👍👍👍👍"
+      },
+      {
+        "userName": "wecode",
+        "content": "Welcome to world best coding bootcamp!"
+      }
+    ]
   },
   {
-    "userName": "joonsikyang",
-    "content": "Hi there."
+    "author": "dda_._._asa",
+    "likeCount": "1940",
+    "title": " 밖에서 칵테일❣️",
+    "commentCount": "102",
+    "img": "images/geonwoojeon/images/feed/ka1.jpeg",
+    "profileImg": "images/geonwoojeon/images/profile/1.jpeg",
+    "comments": [
+      {
+        "userName": "wecode",
+        "content": "Welcome to world best coding bootcamp!"
+      },
+      {
+        "userName": "m_M.M_mk",
+        "content": "ssssaa~"
+      },
+      {
+        "userName": "qqsasasq",
+        "content": "12sasa3"
+      }
+    ]
   },
   {
-    "userName": "jayPark",
-    "content": "Hey."
+    "author": "ffx_xc",
+    "likeCount": "87",
+    "title": " 초콜릿 같지않은 초콜릿💩",
+    "commentCount": "7",
+    "img": "images/geonwoojeon/images/feed/cho.jpeg",
+    "profileImg": "images/geonwoojeon/images/profile/2.jpeg",
+    "comments": [
+      {
+        "userName": "namme1",
+        "content": "Hello world"
+      },
+      {
+        "userName": "name2~d",
+        "content": "react"
+      },
+      {
+        "userName": "name333",
+        "content": "javascript"
+      }
+    ]
   }
 ]

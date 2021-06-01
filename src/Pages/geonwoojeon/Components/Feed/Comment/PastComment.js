@@ -7,7 +7,7 @@ class PastComment extends React.Component {
         {this.props.name}
         <span> {this.props.comment}</span>
         <span>
-          <i class="fas fa-times"></i>
+          <i className="fas fa-times"></i>
           <svg
             className="article-bottom-comment heart"
             aria-label="좋아요"
