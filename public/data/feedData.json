@@ -37,7 +37,27 @@
     "feedImgSrc": "/images/hyunchanpark/images/women.jpg",
     "feedLike": false,
     "feedLikeCounts": "100,000",
-    "content": "Hi there."
+    "content": "Hi there.",
+    "comments": [
+      {
+        "id": 1,
+        "userName": "2",
+        "content": "22",
+        "isLiked": true
+      },
+      {
+        "id": 2,
+        "userName": "22",
+        "content": "222.",
+        "isLiked": false
+      },
+      {
+        "id": 3,
+        "userName": "222",
+        "content": "2222.",
+        "isLiked": false
+      }
+    ]
   },
   {
     "id": 3,
@@ -47,6 +67,26 @@
     "feedImgSrc": "/images/hyunchanpark/images/IU1.jpg",
     "feedLike": true,
     "feedLikeCounts": "1,111,111",
-    "content": "IU lovely"
+    "content": "IU lovely",
+    "comments": [
+      {
+        "id": 1,
+        "userName": "3",
+        "content": "33",
+        "isLiked": true
+      },
+      {
+        "id": 2,
+        "userName": "333",
+        "content": "333.",
+        "isLiked": false
+      },
+      {
+        "id": 3,
+        "userName": "3333",
+        "content": "3333.",
+        "isLiked": false
+      }
+    ]
   }
 ]

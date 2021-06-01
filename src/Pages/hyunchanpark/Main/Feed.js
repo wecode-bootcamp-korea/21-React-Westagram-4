@@ -5,25 +5,23 @@ import './Main.scss';
 class Feed extends Component {
   render() {
     const {
-      id,
-      userName,
-      city,
-      userImgSrc,
-      feedImgSrc,
-      feedLike,
-      feedLikeCounts,
-      contentText,
-      comments,
+      feed,
+      commentValue,
+      isCommentSubmitDisable,
+      onCommentValue,
+      onSubmitCommentForm,
+      onRemoveComment,
+      onToggleLike,
     } = this.props;
     return (
       <>
-        <article className="feed" id={id}>
+        <article className="feed" id={feed.id}>
           <header>
             <div className="header-contents-align">
               <div className="user-image-container">
                 <a href="/">
                   <img
-                    src={userImgSrc}
+                    src={feed.userImgSrc}
                     className="user-image"
                     alt="사용자 이미지"
                   />
@@ -32,13 +30,9 @@ class Feed extends Component {
               <div className="user-info-container">
                 <div className="user-info">
                   <a href="/">
-                    <span className="user-name">{userName}</span>
+                    <span className="user-name">{feed.userName}</span>
                   </a>
-                  <span className="city">
-                    {city}
-                    {/* <span>•</span>
-                    195 */}
-                  </span>
+                  <span className="city">{feed.city}</span>
                 </div>
               </div>
             </div>
@@ -46,7 +40,7 @@ class Feed extends Component {
           </header>
 
           <div className="feed-image">
-            <img src={feedImgSrc} alt="feedImage" />
+            <img src={feed.feedImgSrc} alt="feedImage" />
           </div>
 
           <div className="comments">
@@ -57,14 +51,14 @@ class Feed extends Component {
                     <svg
                       aria-label="좋아요"
                       className="_8-yf5"
-                      fill={feedLike ? 'red' : '#262626'}
+                      fill={feed.feedLike ? 'red' : '#262626'}
                       height="24"
                       viewBox="0 0 48 48"
                       width="24"
                     >
                       <path
                         d={
-                          feedLike
+                          feed.feedLike
                             ? 'M34.6 3.1c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5s1.1-.2 1.6-.5c1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z'
                             : 'M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z'
                         }
@@ -127,19 +121,28 @@ class Feed extends Component {
             <div className="like-counts">
               <a href="/">
                 좋아요
-                <span>{feedLikeCounts}</span>개
+                <span>{feed.feedLikeCounts}</span>개
               </a>
             </div>
 
             <div className="user-comment-container">
               <div className="user-comment">
                 <a href="/" className="comment-id">
-                  {userName}
+                  {feed.userName}
                 </a>
-                <span>{contentText}</span>
+                <span>{feed.contentText}</span>
               </div>
 
-              <CommentList comments={comments} />
+              <CommentList
+                id={feed.id}
+                commentList={feed.comments}
+                commentValue={commentValue}
+                onCommentValue={onCommentValue}
+                isCommentSubmitDisable={isCommentSubmitDisable}
+                onSubmitCommentForm={onSubmitCommentForm}
+                onRemoveComment={onRemoveComment}
+                onToggleLike={onToggleLike}
+              />
             </div>
           </div>
         </article>

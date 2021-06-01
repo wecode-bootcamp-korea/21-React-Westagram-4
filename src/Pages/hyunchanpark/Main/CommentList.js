@@ -1,83 +1,23 @@
 import React, { Component } from 'react';
 import Comment from './Comment';
+import CommentInput from './CommentInput';
 import './Main.scss';
 
 class CommentList extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      defaultComments: this.props.comments,
-      commentList: [],
-      commentValue: '',
-      isCommentSubmitDisable: true,
-    };
-  }
-
-  // componentDidMount() {
-  //   this.setState({
-  //     commentList: COMMENT,
-  //   });
-  // }
-
-  componentDidMount() {
-    fetch('http://localhost:3000/data/commentData.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          commentList: data,
-        });
-      });
-  }
-
-  onCommentValue = e => {
-    this.setState({ commentValue: e.target.value });
-  };
-
-  onSubmitCommentForm = e => {
-    e.preventDefault();
-
-    const { commentList, commentValue } = this.state;
-    if (commentValue === '') return;
-
-    this.setState({
-      commentList: [
-        ...commentList,
-        {
-          id: commentList.length + 1,
-          userName: 'hyunchan',
-          content: commentValue.trim(),
-          isLiked: false,
-        },
-      ],
-      commentValue: '',
-    });
-  };
-
-  onRemoveComment = e => {
-    const { commentList } = this.state;
-
-    this.setState({
-      commentList: commentList.filter(
-        comment => comment.id !== Number(e.target.id)
-      ),
-    });
-  };
-
-  onToggleLike = e => {
-    const { commentList } = this.state;
-    console.log(e.target.id);
-    this.setState({
-      isLiked: !commentList[e.target.id].isLiked,
-    });
-  };
-
   render() {
-    const { commentList, commentValue, defaultComments } = this.state;
-    const isCommentBtnDisable =
-      this.state.commentValue.length > 0 ? false : true;
+    const {
+      id,
+      commentList,
+      commentValue,
+      onCommentValue,
+      isCommentSubmitDisable,
+      onSubmitCommentForm,
+      onToggleLike,
+      onRemoveComment,
+    } = this.props;
+
+    // const isCommentBtnDisable =
+    //   commentValue && commentValue.length > 0 ? false : true;
     return (
       <>
         <div>
@@ -88,18 +28,15 @@ class CommentList extends Component {
           </div>
 
           <div className="other-comments">
-            {commentList.map((comment, i) => (
-              <Comment
-                key={comment.id}
-                id={comment.id}
-                userName={comment.userName}
-                defaultComments={defaultComments}
-                commentValue={comment.content}
-                isLiked={comment.isLiked}
-                onToggleLike={this.onToggleLike}
-                onRemoveComment={this.onRemoveComment}
-              />
-            ))}
+            {commentList &&
+              commentList.map((comment, i) => (
+                <Comment
+                  key={i}
+                  comment={comment}
+                  onToggleLike={onToggleLike}
+                  onRemoveComment={onRemoveComment}
+                />
+              ))}
           </div>
 
           <div className="time-container">
@@ -117,7 +54,7 @@ class CommentList extends Component {
 
         <div className="post-comment">
           <div className="comment-form-container">
-            <form className="comment-form" onSubmit={this.onSubmitCommentForm}>
+            <form className="comment-form" onSubmit={onSubmitCommentForm}>
               <button className="emoji-button">
                 <div className="svg">
                   <svg
@@ -133,23 +70,12 @@ class CommentList extends Component {
                   </svg>
                 </div>
               </button>
-              <input
-                type="text"
-                className="comment-input"
-                value={commentValue}
-                onChange={this.onCommentValue}
-                aria-label="댓글 달기..."
-                placeholder="댓글 달기..."
-                autoComplete="off"
-                autoCorrect="off"
+              <CommentInput
+                id={id}
+                commentValue={commentValue}
+                isCommentBtnDisable={isCommentSubmitDisable}
+                onCommentValue={onCommentValue}
               />
-              <button
-                className="post-button"
-                type="submit"
-                disabled={isCommentBtnDisable}
-              >
-                게시
-              </button>
             </form>
           </div>
         </div>

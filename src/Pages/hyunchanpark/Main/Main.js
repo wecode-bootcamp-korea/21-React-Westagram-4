@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from '../../../Components/Nav/Nav';
-import Feeds from './Feeds';
+import FeedList from './FeedList';
 import './Main.scss';
 
 class Main extends React.Component {
@@ -90,7 +90,7 @@ class Main extends React.Component {
                   </div>
                 </div>
 
-                <Feeds />
+                <FeedList />
               </div>
 
               <aside className="right-contents-container">
