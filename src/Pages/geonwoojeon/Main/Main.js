@@ -9,7 +9,16 @@ class Main extends React.Component {
     super();
     this.state = {
       feedList: [],
+      resize: '',
     };
+  }
+
+  componentDidUpdate() {
+    window.addEventListener('resize', this.handleResize);
+  }
+
+  componentWillUnmount() {
+    console.log('123');
   }
 
   componentDidMount() {
@@ -22,7 +31,15 @@ class Main extends React.Component {
           feedList: data,
         });
       });
+    window.addEventListener('resize', this.handleResize);
   }
+
+  handleResize = () => {
+    this.setState({
+      resize: `${167 + window.innerWidth / 2}px`,
+    });
+  };
+
   render() {
     const { feedList } = this.state;
     return (
@@ -176,7 +193,7 @@ class Main extends React.Component {
                   );
                 })}
               </div>
-              <div id="main-right">
+              <div id="main-right" style={{ left: this.state.resize }}>
                 <div className="main-right-profile">
                   <div className="main-right-profile-image">
                     <img
