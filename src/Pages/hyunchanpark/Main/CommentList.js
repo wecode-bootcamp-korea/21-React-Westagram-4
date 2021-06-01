@@ -7,6 +7,7 @@ class CommentList extends Component {
     super(props);
 
     this.state = {
+      defaultComments: this.props.comments,
       commentList: [],
       commentValue: '',
       isCommentSubmitDisable: true,
@@ -74,7 +75,7 @@ class CommentList extends Component {
   };
 
   render() {
-    const { commentList, commentValue } = this.state;
+    const { commentList, commentValue, defaultComments } = this.state;
     const isCommentBtnDisable =
       this.state.commentValue.length > 0 ? false : true;
     return (
@@ -92,6 +93,7 @@ class CommentList extends Component {
                 key={comment.id}
                 id={comment.id}
                 userName={comment.userName}
+                defaultComments={defaultComments}
                 commentValue={comment.content}
                 isLiked={comment.isLiked}
                 onToggleLike={this.onToggleLike}

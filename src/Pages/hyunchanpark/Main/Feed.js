@@ -13,6 +13,7 @@ class Feed extends Component {
       feedLike,
       feedLikeCounts,
       contentText,
+      comments,
     } = this.props;
     return (
       <>
@@ -138,7 +139,7 @@ class Feed extends Component {
                 <span>{contentText}</span>
               </div>
 
-              <CommentList />
+              <CommentList comments={comments} />
             </div>
           </div>
         </article>

@@ -7,6 +7,7 @@ class Comment extends React.Component {
       id,
       userName,
       commentValue,
+      defaultComments,
       isLiked,
       onToggleLike,
       onRemoveComment,
@@ -19,6 +20,8 @@ class Comment extends React.Component {
             <Link to="/main" className="comment-id">
               {userName}
             </Link>
+
+            {/* TODO: 여기에 defaultComments 와 input창에서 입력된 댓글추가를 어떻게 할건지 고민 */}
             <span>{commentValue}</span>
           </div>
           <button>

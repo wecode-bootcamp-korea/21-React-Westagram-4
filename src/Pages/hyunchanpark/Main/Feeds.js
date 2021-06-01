@@ -38,6 +38,7 @@ class Feeds extends Component {
               feedLike={feed.feedLike}
               feedLikeCounts={feed.feedLikeCounts}
               contentText={feed.content}
+              comments={feed.comments}
             />
           ))}
         </div>

@@ -3,6 +3,12 @@ import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import './Login.scss';
 
+const regObj = {
+  emailRegExp:
+    /[a-zA-Z0-9.-_+!]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]{2,}(?:.[a-zA-Z0-9]{2,3})?/,
+  passwordRegExp: /[a-zA-Z0-9]{5,100}/,
+};
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -10,31 +16,18 @@ class Login extends React.Component {
     this.state = { userId: '', userPw: '' };
   }
 
-  validateId = email => {
-    const emailRegExp =
-      /[a-zA-Z0-9.-_+!]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]{2,}(?:.[a-zA-Z0-9]{2,3})?/;
-    let isValidEmail = false;
-    const idRegExp = new RegExp(emailRegExp);
-
-    if (idRegExp.test(email)) {
-      isValidEmail = true;
-    }
-    return isValidEmail;
-  };
-
-  validatePassword = password => {
-    const passwordRegExp = /[a-zA-Z0-9]{5,100}/;
-    let isValidPassword = false;
-    const pwRegExp = new RegExp(passwordRegExp);
-
-    if (pwRegExp.test(password)) {
-      isValidPassword = true;
-    }
-    return isValidPassword;
+  validate = (value, regExp) => {
+    const reg = new RegExp(regExp);
+    let isValid = false;
+    if (reg.test(value)) isValid = true;
+    return isValid;
   };
 
   validateInputData = (id, pw) => {
-    return this.validateId(id) && this.validatePassword(pw);
+    return (
+      this.validate(id, regObj.emailRegExp) &&
+      this.validate(pw, regObj.passwordRegExp)
+    );
   };
 
   handleInput = e => {
