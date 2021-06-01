@@ -2,27 +2,29 @@ import React from 'react';
 import './Main.scss';
 import Nav from '../../../Components/Nav/Nav';
 import Feed from '../Components/Feed/Feed';
+import { Link } from 'react-router-dom';
 
 class Main extends React.Component {
   constructor() {
     super();
     this.state = {
-      pastCommentList: [],
+      feedList: [],
     };
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/commentData.json', {
+    fetch('http://localhost:3000/data/feed.json', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
         this.setState({
-          pastCommentList: data,
+          feedList: data,
         });
       });
   }
   render() {
+    const { feedList } = this.state;
     return (
       <>
         <div className="main">
@@ -34,123 +36,123 @@ class Main extends React.Component {
                   <div className="story-image">
                     <ul>
                       <li>
-                        <a href="/">
+                        <Link to="/">
                           <img
                             className="story-profile"
                             src="images/geonwoojeon/images/profile/1.jpeg"
-                            alt="1"
+                            alt="story-profile-1"
                           />
-                        </a>
+                        </Link>
                         <span className="story-ID">j_u_n98</span>
                         <img
                           className="stroy-ring"
                           src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
-                          alt=""
+                          alt="ring"
                         />
                       </li>
                       <li>
-                        <a href="/">
+                        <Link to="/">
                           <img
                             className="story-profile"
                             src="images/geonwoojeon/images/profile/2.jpeg"
-                            alt="2"
+                            alt="story-profile-2"
                           />
-                        </a>
+                        </Link>
                         <span className="story-ID">eru77</span>
                         <img
                           className="stroy-ring"
                           src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
-                          alt=""
+                          alt="ring"
                         />
                       </li>
                       <li>
-                        <a href="/">
+                        <Link to="/">
                           <img
                             className="story-profile"
                             src="images/geonwoojeon/images/profile/3.jpeg"
-                            alt="3"
+                            alt="story-profile-3"
                           />
-                        </a>
+                        </Link>
                         <span className="story-ID">rktbs1</span>
                         <img
                           className="stroy-ring"
                           src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
-                          alt=""
+                          alt="ring"
                         />
                       </li>
                       <li>
-                        <a href="/">
+                        <Link to="/">
                           <img
                             className="story-profile"
                             src="images/geonwoojeon/images/profile/4.jpeg"
-                            alt="4"
+                            alt="story-profile-4"
                           />
-                        </a>
+                        </Link>
                         <span className="story-ID">gemsto..</span>
                         <img
                           className="stroy-ring"
                           src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
-                          alt=""
+                          alt="ring"
                         />
                       </li>
                       <li>
-                        <a href="/">
+                        <Link to="/">
                           <img
                             className="story-profile"
                             src="images/geonwoojeon/images/profile/5.jpeg"
-                            alt="5"
+                            alt="story-profile-5"
                           />
-                        </a>
+                        </Link>
                         <span className="story-ID">l_s._</span>
                         <img
                           className="stroy-ring"
                           src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
-                          alt=""
+                          alt="ring"
                         />
                       </li>
                       <li>
-                        <a href="/">
+                        <Link to="/">
                           <img
                             className="story-profile"
                             src="images/geonwoojeon/images/profile/6.jpeg"
-                            alt="6"
+                            alt="story-profile-6"
                           />
-                        </a>
+                        </Link>
                         <span className="story-ID">aydddd__</span>
                         <img
                           className="stroy-ring"
                           src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
-                          alt=""
+                          alt="ring"
                         />
                       </li>
                       <li>
-                        <a href="/">
+                        <Link to="/">
                           <img
                             className="story-profile"
                             src="images/geonwoojeon/images/profile/7.jpeg"
-                            alt="7"
+                            alt="story-profile-7"
                           />
-                        </a>
+                        </Link>
                         <span className="story-ID">p_s_l.O</span>
                         <img
                           className="stroy-ring"
                           src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
-                          alt=""
+                          alt="ring"
                         />
                       </li>
                       <li>
-                        <a href="/">
+                        <Link to="/">
                           <img
                             className="story-profile"
                             src="images/geonwoojeon/images/profile/8.jpeg"
-                            alt="8"
+                            alt="story-profile-8"
                           />
-                        </a>
+                        </Link>
                         <span className="story-ID">cdaa_p</span>
                         <img
                           className="stroy-ring"
                           src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
-                          alt=""
+                          alt="ring"
                         />
                       </li>
                     </ul>
@@ -159,10 +161,10 @@ class Main extends React.Component {
                     <div className="story-arrow-image"></div>
                   </button>
                 </div>
-                {this.state.pastCommentList.map((comment, index) => {
+                {feedList.map((comment, index) => {
                   return (
                     <Feed
-                      index={index}
+                      key={index}
                       author={comment.author}
                       likeCount={comment.likeCount}
                       title={comment.title}
@@ -179,7 +181,7 @@ class Main extends React.Component {
                   <div className="main-right-profile-image">
                     <img
                       src="images/geonwoojeon/images/profile/me.jpeg"
-                      alt="me"
+                      alt="profile-me"
                     />
                   </div>
                   <div className="main-right-profile-nickname">
@@ -196,7 +198,7 @@ class Main extends React.Component {
                   <div className="main-right-follow-image">
                     <img
                       src="images/geonwoojeon/images/profile/10.jpeg"
-                      alt="10"
+                      alt="profile-10"
                     />
                   </div>
                   <div className="main-right-follow-nickname">
@@ -226,11 +228,11 @@ class Main extends React.Component {
                   <div className="main-right-follow-image">
                     <img
                       src="images/geonwoojeon/images/profile/8.jpeg"
-                      alt="8"
+                      alt="profile-8"
                     />
                     <img
                       src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
-                      alt=""
+                      alt="ring"
                     />
                   </div>
                   <div className="main-right-follow-nickname">
@@ -245,7 +247,7 @@ class Main extends React.Component {
                   <div className="main-right-follow-image">
                     <img
                       src="images/geonwoojeon/images/profile/11.jpeg"
-                      alt="11"
+                      alt="profile-11"
                     />
                   </div>
                   <div className="main-right-follow-nickname">
@@ -260,7 +262,7 @@ class Main extends React.Component {
                   <div className="main-right-follow-image">
                     <img
                       src="images/geonwoojeon/images/profile/5.jpeg"
-                      alt="5"
+                      alt="profile-5"
                     />
                   </div>
                   <div className="main-right-follow-nickname">

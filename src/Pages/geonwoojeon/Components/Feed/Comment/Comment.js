@@ -2,10 +2,11 @@ import React from 'react';
 
 class Comment extends React.Component {
   render() {
+    const { key, name, comment } = this.props;
     return (
-      <div className="article-bottom-comment text" key={this.props.key}>
-        {this.props.name}
-        <span> {this.props.comment}</span>
+      <div className="article-bottom-comment text" key={key}>
+        {name}
+        <span> {comment}</span>
         <span>
           <i className="fas fa-times"></i>
           <svg

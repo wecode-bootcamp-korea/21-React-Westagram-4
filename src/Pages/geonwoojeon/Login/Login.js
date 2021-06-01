@@ -28,6 +28,8 @@ class LoginWoo extends React.Component {
   };
 
   render() {
+    const { value } = this.state;
+    const { handleIdInput, handlePwInput, goToMain } = this;
     return (
       <div className="login">
         <main>
@@ -35,21 +37,21 @@ class LoginWoo extends React.Component {
             <h1 className="title">westagram</h1>
             <form className="input-boxes">
               <input
-                onChange={this.handleIdInput}
-                value={this.state.value}
+                onChange={handleIdInput}
+                value={value}
                 id="email-input-box"
                 type="text"
                 placeholder="전화번호, 사용자 이름 또는 이메일"
               />
               <input
-                onChange={this.handlePwInput}
+                onChange={handlePwInput}
                 id="password-input-box"
                 type="password"
                 placeholder="비밀번호"
               />
             </form>
             <button
-              onClick={this.goToMain}
+              onClick={goToMain}
               type="button"
               id="login-button"
               value="0"

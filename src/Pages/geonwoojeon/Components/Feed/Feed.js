@@ -1,6 +1,7 @@
 import React from 'react';
 import Comment from '../Feed/Comment/Comment';
 import PastComment from '../Feed/Comment/PastComment';
+import { Link } from 'react-router-dom';
 
 class Feed extends React.Component {
   constructor() {
@@ -26,22 +27,26 @@ class Feed extends React.Component {
   };
 
   componentDidMount() {
-    const comentProps = this.props.comments;
-    this.setState({ pastCommentList: comentProps });
+    const commentProps = this.props.comments;
+    this.setState({ pastCommentList: commentProps });
   }
   render() {
+    const { index, profileImg, author, img, likeCount, title, commentCount } =
+      this.props;
+    const { pastCommentList, commentList, comment } = this.state;
+    const { inputComment, postComment } = this;
     return (
-      <div className="feed" key={this.props.index}>
+      <div className="feed" key={index}>
         <article>
           <div className="article-head">
-            <a href="/" className="article-profile">
-              <img src={this.props.profileImg} alt="" />
+            <Link to="/" className="article-profile">
+              <img src={profileImg} alt="profileImg" />
               <img
                 src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
-                alt=""
+                alt="ringImg"
               />
-              <span className="article-ID">{this.props.author}</span>
-            </a>
+              <span className="article-ID">{author}</span>
+            </Link>
             <svg
               aria-label="옵션 더 보기"
               fill="#262626"
@@ -73,7 +78,7 @@ class Feed extends React.Component {
             </svg>
           </div>
           <div className="article-body">
-            <img src={this.props.img} alt="2" />
+            <img src={img} alt="img2" />
           </div>
           <div className="article-bottom">
             <div className="article-bottom-icon">
@@ -140,19 +145,19 @@ class Feed extends React.Component {
               </div>
             </div>
             <div className="article-bottom-thank">
-              <a href="/">
-                좋아요 <span>{this.props.likeCount}</span>개
-              </a>
+              <Link to="/">
+                좋아요 <span>{likeCount}</span>개
+              </Link>
             </div>
             <div className="article-bottom-title text">
-              {this.props.author}
-              <span>{this.props.title}</span>
+              {author}
+              <span>{title}</span>
             </div>
-            <a href="/" className="article-bottom-more-comment">
-              댓글 {this.props.commentCount}개 모두 보기
-            </a>
+            <Link to="/" className="article-bottom-more-comment">
+              댓글 {commentCount}개 모두 보기
+            </Link>
             <div className="article-bottom-comment-box">
-              {this.state.pastCommentList.map((comment, index) => {
+              {pastCommentList.map((comment, index) => {
                 return (
                   <PastComment
                     name={comment.userName}
@@ -162,7 +167,7 @@ class Feed extends React.Component {
                 );
               })}
               <div>
-                {this.state.commentList.map((comment, index) => {
+                {commentList.map((comment, index) => {
                   return (
                     <Comment name={'raing_8'} comment={comment} key={index} />
                   );
@@ -188,14 +193,14 @@ class Feed extends React.Component {
                   className="article-bottom-input-comment"
                   type="text"
                   placeholder="댓글 달기.."
-                  value={this.state.comment}
-                  onChange={this.inputComment}
+                  value={comment}
+                  onChange={inputComment}
                 />
                 <button
                   type="submit"
                   className="article-bottom-input-posting"
-                  disabled={this.state.comment.length < 1}
-                  onClick={this.postComment}
+                  disabled={comment.length < 1}
+                  onClick={postComment}
                 >
                   게시
                 </button>
