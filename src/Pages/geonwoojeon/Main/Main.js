@@ -27,7 +27,9 @@ class Main extends React.Component {
           feedList: data,
         });
       });
-    window.addEventListener('resize', this.handleResize);
+    document.querySelector('#main-right').style.left = `${
+      167 + window.innerWidth / 2
+    }px`;
   }
 
   handleResize = () => {

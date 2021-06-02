@@ -2,6 +2,7 @@ import React from 'react';
 import Comment from '../Feed/Comment/Comment';
 import PastComment from '../Feed/Comment/PastComment';
 import { Link } from 'react-router-dom';
+import ViewComment from './ViewComment';
 
 class Feed extends React.Component {
   constructor() {
@@ -10,9 +11,15 @@ class Feed extends React.Component {
       comment: '',
       commentList: [],
       pastCommentList: [],
-      mode: 'flase',
+      mode: true,
+      viewCommentList: false,
     };
   }
+
+  viewMoreComment = () => {
+    this.setState(state => ({ viewCommentList: !state.viewCommentList }));
+    document.body.style.overflow = 'auto';
+  };
 
   clickHeart = () => {
     this.setState(state => ({ mode: !state.mode }));
@@ -169,9 +176,21 @@ class Feed extends React.Component {
               {author}
               <span>{title}</span>
             </div>
-            <Link to="/" className="article-bottom-more-comment">
+            <Link
+              className="article-bottom-more-comment"
+              onClick={this.viewMoreComment}
+            >
               댓글 {commentCount}개 모두 보기
             </Link>
+            {this.state.viewCommentList && (
+              <ViewComment
+                is={this.viewMoreComment}
+                img={img}
+                author={author}
+                profileImg={profileImg}
+              />
+            )}
+
             <div className="article-bottom-comment-box">
               {pastCommentList.map((comment, index) => {
                 return (
