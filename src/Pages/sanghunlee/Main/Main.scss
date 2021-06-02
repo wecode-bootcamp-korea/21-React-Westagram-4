@@ -305,14 +305,6 @@
                 position: absolute;
                 top: 0;
                 width: 100%;
-                .userPhoto {
-                  object-fit: cover;
-                  height: 100%;
-                  left: 0;
-                  position: absolute;
-                  top: 0;
-                  width: 100%;
-                }
               }
             }
             .feedPhotoCover {
@@ -402,19 +394,19 @@
                       flex: 0 0 auto;
                       overflow: hidden;
                       position: relative;
-                      &::after {
-                        border: 1px solid rgba(0, 0, 0, 0.0975);
-                        border-radius: 50%;
-                        bottom: 0;
-                        content: '';
-                        left: 0;
-                        pointer-events: none;
-                        position: absolute;
-                        right: 0;
-                        top: 0;
-                        .likeUserImg {
-                          height: 100%;
-                          width: 100%;
+                      .likeUserImg {
+                        height: 100%;
+                        width: 100%;
+                        &::after {
+                          border: 1px solid rgba(0, 0, 0, 0.0975);
+                          border-radius: 50%;
+                          bottom: 0;
+                          content: '';
+                          left: 0;
+                          pointer-events: none;
+                          position: absolute;
+                          right: 0;
+                          top: 0;
                         }
                       }
                     }

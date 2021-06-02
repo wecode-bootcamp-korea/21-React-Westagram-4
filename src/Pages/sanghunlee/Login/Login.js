@@ -15,7 +15,19 @@ class Login extends Component {
 
   goToMain = e => {
     e.preventDefault();
-    this.props.history.push('/main');
+    fetch('http://10.58.3.58:8000/accounts/signin', {
+      method: 'POST',
+      body: JSON.stringify({
+        e_mail: this.state.userId,
+        password: this.state.userPw,
+        phone_num: '01000000001',
+        nickname: 'testUser2',
+      }),
+    })
+      .then(response => response.json())
+      .then(result => console.log('결과: ', result));
+
+    this.props.history.push('/mainhun');
   };
 
   handleInput = e => {
