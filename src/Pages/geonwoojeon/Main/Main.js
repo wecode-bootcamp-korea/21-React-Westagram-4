@@ -17,10 +17,6 @@ class Main extends React.Component {
     window.addEventListener('resize', this.handleResize);
   }
 
-  componentWillUnmount() {
-    console.log('123');
-  }
-
   componentDidMount() {
     fetch('http://localhost:3000/data/feed.json', {
       method: 'GET',

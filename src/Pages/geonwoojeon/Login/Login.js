@@ -8,6 +8,8 @@ class LoginWoo extends React.Component {
     this.state = {
       idValue: '',
       pwValue: '',
+      nickName: '1as1',
+      contact: '12312dsa3',
     };
   }
 
@@ -24,9 +26,26 @@ class LoginWoo extends React.Component {
   };
 
   goToMain = () => {
+    // fetch('http://10.58.5.131:8000/user/signin', {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     email: this.state.idValue,
+    //     password: this.state.pwValue,
+    //     nickname: this.state.nickName,
+    //     contact: this.state.contact,
+    //   }),
+    // })
+    //   .then(response => response.json())
+    //   .then(result => {
+    //     if (result.message === 'SUCCESS') {
+    //       this.props.history.push('/mainwoo');
+    //     } else {
+    //       alert('이메일과 패스워드를 확인해주세요');
+    //       this.props.history.push('/loginwoo');
+    //     }
+    //   });
     this.props.history.push('/mainwoo');
   };
-
   render() {
     const { value } = this.state;
     const { handleIdInput, handlePwInput, goToMain } = this;

@@ -173,6 +173,12 @@ main {
               padding: 8px;
               background: transparent;
               border: none;
+
+              svg {
+                path {
+                  transition: 0.2s ease-out;
+                }
+              }
             }
 
             .article-bottom-icon-left button:nth-child(1) {
