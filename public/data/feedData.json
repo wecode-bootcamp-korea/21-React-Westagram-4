@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "userPicUrl": "/images/sanghunlee/userSelfie_1.jpeg",
+    "userName": "leishmania00",
+    "location": "강릉",
+    "pictureUrl": "/images/sanghunlee/userPhoto_1.jpeg",
+    "bestFreindPicUrl": "/images/sanghunlee/likeUserSelfie_1.jpeg",
+    "bestFreind": "findesiecle.b",
+    "likeCount": "45",
+    "content": "현상 다 해서 올린다 ㅋㅋㅋ",
+    "comment": [
+      {
+        "id": 1,
+        "userName": "u.jeeen",
+        "content": "와 날씨 짱좋은데???",
+        "isLiked": true
+      },
+      {
+        "id": 2,
+        "userName": "hj_sohn",
+        "content": "오오오오오 날씨까지 완벽하다👏",
+        "isLiked": false
+      },
+      {
+        "id": 3,
+        "userName": "inspring16",
+        "content": "숙박은 어디서 하는데 현곤이 ?!",
+        "isLiked": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "userPicUrl": "/images/sanghunlee/userSelfie_2.jpeg",
+    "userName": "moolrin",
+    "location": "",
+    "pictureUrl": "/images/sanghunlee/userPhoto_2.jpeg",
+    "bestFreindPicUrl": "/images/sanghunlee/likeUserSelfie_2.jpeg",
+    "bestFreind": "g0dtaek",
+    "likeCount": "72",
+    "content": "안녕",
+    "comment": [
+      {
+        "id": 1,
+        "userName": "habits_of_the_heart",
+        "content": "♥️",
+        "isLiked": false
+      },
+      {
+        "id": 2,
+        "userName": "solsamkim",
+        "content": "홍콩갬성인데😮",
+        "isLiked": true
+      }
+    ]
+  }
+]
