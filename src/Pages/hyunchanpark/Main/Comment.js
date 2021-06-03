@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class Comment extends React.Component {
   render() {
-    const { comment, onRemoveComment, onToggleLike } = this.props;
+    const { feedId, comment, onRemoveComment, onToggleLike } = this.props;
 
     return (
       <>
@@ -19,17 +19,20 @@ class Comment extends React.Component {
               <i
                 className="far fa-trash-alt"
                 id={comment.id}
-                onClick={e => onRemoveComment(e)}
+                onClick={e => onRemoveComment(e, feedId)}
               />
             ) : null}
 
             <i
               className={`${
-                // Likers.find(liker => liker === 'hyunchan')
-                comment.isLiked ? 'fas' : 'far'
+                // comment.isLiked
+                comment.Likers &&
+                comment.Likers.find(liker => liker === 'hyunchan')
+                  ? 'fas'
+                  : 'far'
               } fa-heart`}
               id={comment.id}
-              onClick={e => onToggleLike(e)}
+              onClick={e => onToggleLike(e, feedId)}
             />
           </button>
         </div>

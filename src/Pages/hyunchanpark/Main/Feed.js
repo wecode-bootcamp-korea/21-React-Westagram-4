@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
+import CommentInput from './CommentInput';
 import CommentList from './CommentList';
 import './Main.scss';
 
 class Feed extends Component {
   render() {
-    const {
-      feed,
-      commentValue,
-      isCommentSubmitDisable,
-      onCommentValue,
-      onSubmitCommentForm,
-      onRemoveComment,
-      onToggleLike,
-    } = this.props;
+    const { feed, onSubmitCommentForm, onRemoveComment, onToggleLike } =
+      this.props;
+
     return (
       <>
         <article className="feed" id={feed.id}>
@@ -130,18 +125,19 @@ class Feed extends Component {
                 <a href="/" className="comment-id">
                   {feed.userName}
                 </a>
-                <span>{feed.contentText}</span>
+                <span>{feed.content}</span>
               </div>
 
               <CommentList
-                id={feed.id}
+                feedId={feed.id}
                 commentList={feed.comments}
-                commentValue={commentValue}
-                onCommentValue={onCommentValue}
-                isCommentSubmitDisable={isCommentSubmitDisable}
-                onSubmitCommentForm={onSubmitCommentForm}
                 onRemoveComment={onRemoveComment}
                 onToggleLike={onToggleLike}
+              />
+
+              <CommentInput
+                feedId={feed.id}
+                onSubmitCommentForm={onSubmitCommentForm}
               />
             </div>
           </div>

@@ -46,29 +46,30 @@ class Login extends React.Component {
 
     if (!this.validateInputData(this.state.userId, this.state.userPw)) return;
 
-    fetch('api주소', {
-      method: 'POST',
-      body: JSON.stringify({
-        email: this.state.userId,
-        password: this.state.userPw,
-      }),
-    })
-      .then(response => response.json())
-      .then(result => {
-        console.log('결과: ', result);
+    // fetch('api주소', {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     email: this.state.userId,
+    //     password: this.state.userPw,
+    //   }),
+    // })
+    //   .then(response => response.json())
+    //   .then(result => {
+    //     console.log('결과: ', result);
 
-        if (result.token) {
-          localStorage.setItem('wtw-token', result.token);
-          alert('Login Success');
-          this.props.history.push('/main');
-        } else {
-          alert('Login Fail');
-        }
-      })
-      .catch(error => {
-        console.error(error);
-        alert(error.message);
-      });
+    //     if (result.token) {
+    //       localStorage.setItem('wtw-token', result.token);
+    //       alert('Login Success');
+    //       this.props.history.push('/main');
+    //     } else {
+    //       alert('Login Fail');
+    //     }
+    //   })
+    //   .catch(error => {
+    //     console.error(error);
+    //     alert(error.message);
+    //   });
+    this.props.history.push('/main');
   };
 
   render() {

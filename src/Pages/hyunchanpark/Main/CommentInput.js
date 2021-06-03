@@ -1,31 +1,74 @@
 import React, { Component } from 'react';
-import Feed from './Feed';
 
 class CommentInput extends Component {
-  render() {
-    const { id, commentValue, isCommentBtnDisable, onCommentValue } =
-      this.props;
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      inputValue: '',
+    };
+  }
+
+  onInputValue = e => {
+    this.setState({ inputValue: e.target.value });
+  };
+
+  onSumitInputValue = e => {
+    const newComment = this.state.inputValue;
+    const { feedId } = this.props;
+    this.props.onSubmitCommentForm(e, feedId, newComment);
+    this.setState({ inputValue: '' });
+  };
+
+  render() {
+    const { inputValue } = this.state;
+    const { feedId } = this.props;
+    // console.log('inputCom render feedId', feedId);
+    const isSubmitDisable = inputValue && inputValue.length > 0 ? false : true;
     return (
       <>
-        <input
-          id={id}
-          type="text"
-          className="comment-input"
-          defaultValue={commentValue ? commentValue : ''}
-          onChange={onCommentValue}
-          aria-label="댓글 달기..."
-          placeholder="댓글 달기..."
-          autoComplete="off"
-          autoCorrect="off"
-        />
-        <button
-          className="post-button"
-          type="submit"
-          disabled={isCommentBtnDisable}
-        >
-          게시
-        </button>
+        <div className="post-comment">
+          <div className="comment-form-container">
+            <form
+              className="comment-form"
+              id={feedId}
+              onSubmit={this.onSumitInputValue}
+            >
+              <button className="emoji-button">
+                <div className="svg">
+                  <svg
+                    aria-label="이모티콘"
+                    className=""
+                    fill="#262626"
+                    height="24"
+                    viewBox="0 0 48 48"
+                    width="24"
+                  >
+                    <path d="M24 48C10.8 48 0 37.2 0 24S10.8 0 24 0s24 10.8 24 24-10.8 24-24 24zm0-45C12.4 3 3 12.4 3 24s9.4 21 21 21 21-9.4 21-21S35.6 3 24 3z"></path>
+                    <path d="M34.9 24c0-1.4-1.1-2.5-2.5-2.5s-2.5 1.1-2.5 2.5 1.1 2.5 2.5 2.5 2.5-1.1 2.5-2.5zm-21.8 0c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5-2.5-1.1-2.5-2.5zM24 37.3c-5.2 0-8-3.5-8.2-3.7-.5-.6-.4-1.6.2-2.1.6-.5 1.6-.4 2.1.2.1.1 2.1 2.5 5.8 2.5 3.7 0 5.8-2.5 5.8-2.5.5-.6 1.5-.7 2.1-.2.6.5.7 1.5.2 2.1 0 .2-2.8 3.7-8 3.7z"></path>
+                  </svg>
+                </div>
+              </button>
+              <input
+                type="text"
+                className="comment-input"
+                value={inputValue}
+                onChange={this.onInputValue}
+                aria-label="댓글 달기..."
+                placeholder="댓글 달기..."
+                autoComplete="off"
+                autoCorrect="off"
+              />
+              <button
+                className="post-button"
+                type="submit"
+                disabled={isSubmitDisable}
+              >
+                게시
+              </button>
+            </form>
+          </div>
+        </div>
       </>
     );
   }
