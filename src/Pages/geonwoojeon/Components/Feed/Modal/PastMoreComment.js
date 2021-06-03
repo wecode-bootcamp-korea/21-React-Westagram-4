@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Comment extends React.Component {
+class PastMoreComment extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -10,22 +10,34 @@ class Comment extends React.Component {
   clickHeart = () => {
     this.setState(state => ({ pastCommentMode: !state.pastCommentMode }));
   };
-
   render() {
-    const { key, name, comment } = this.props;
     return (
-      <div className="article-bottom-comment text" key={key}>
-        {name}
-        <span> {comment}</span>
-        <span>
+      <div className="modal-right-comment-user" key={this.props.key}>
+        <img src={this.props.profileImg} alt={this.props.author}></img>
+        <div className="modal-right-comment-user-left">
+          <div className="modal-right-comment-user-title">
+            {this.props.author}
+            {this.props.title}
+          </div>
+          <div className="modal-right-comment-user-time">
+            {this.props.pastTime} <button>답글 달기</button>
+          </div>
+          <div className="modal-right-comment-user-reply">
+            <div className="modal-right-comment-user-line"></div>
+            <button>답글 보기(3개)</button>
+          </div>
+        </div>
+        <button
+          type="button"
+          className="modal-right-comment-heart"
+          onClick={this.clickHeart}
+        >
           <svg
-            className="article-bottom-comment heart"
             aria-label="좋아요"
+            fill={this.state.pastCommentMode ? 'black' : 'red'}
             height="12"
             viewBox="0 0 48 48"
             width="12"
-            onClick={this.clickHeart}
-            fill={this.state.pastCommentMode ? 'black' : 'red'}
           >
             <path
               d={
@@ -35,10 +47,9 @@ class Comment extends React.Component {
               }
             ></path>
           </svg>
-        </span>
+        </button>
       </div>
     );
   }
 }
-
-export default Comment;
+export default PastMoreComment;

@@ -280,7 +280,10 @@ main {
                   padding: 8px 12px;
 
                   .modal-right-comment-heart {
-                    margin: 8px 0 0 40px;
+                    min-width: 12px;
+                    position: absolute;
+                    margin: 5px 20px 0 0;
+                    right: 0;
                     height: 0;
                     border: none;
                     background: none;

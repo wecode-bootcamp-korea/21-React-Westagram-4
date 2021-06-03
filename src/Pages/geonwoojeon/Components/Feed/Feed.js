@@ -2,7 +2,7 @@ import React from 'react';
 import Comment from '../Feed/Comment/Comment';
 import PastComment from '../Feed/Comment/PastComment';
 import { Link } from 'react-router-dom';
-import MoreComment from './MoreComment';
+import ModalComment from './ModalComment';
 
 class Feed extends React.Component {
   constructor() {
@@ -15,7 +15,6 @@ class Feed extends React.Component {
       moreCommentList: false,
     };
   }
-
   viewMoreComment = () => {
     this.setState(state => ({ moreCommentList: !state.moreCommentList }));
     document.body.style.overflow = 'auto';
@@ -191,13 +190,21 @@ class Feed extends React.Component {
               댓글 {commentCount}개 모두 보기
             </Link>
             {this.state.moreCommentList && (
-              <MoreComment
+              <ModalComment
+                likeCount={likeCount}
+                clickHeart={this.clickHeart}
+                mode={this.state.mode}
+                pastCommentList={pastCommentList}
                 isCheck={this.viewMoreComment}
                 img={img}
                 author={author}
                 profileImg={profileImg}
                 title={title}
                 pastTime={pastTime}
+                commentList={commentList}
+                comment={comment}
+                inputComment={inputComment}
+                postComment={postComment}
               />
             )}
 
@@ -214,7 +221,13 @@ class Feed extends React.Component {
               <div>
                 {commentList.map((comment, index) => {
                   return (
-                    <Comment name={'raing_8'} comment={comment} key={index} />
+                    <Comment
+                      name={'raing_8'}
+                      comment={comment}
+                      key={index}
+                      mode={this.state.mode}
+                      clickHeart={this.clickHeart}
+                    />
                   );
                 })}
               </div>

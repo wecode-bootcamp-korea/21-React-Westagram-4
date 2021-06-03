@@ -9,16 +9,22 @@
     "pastTime": "3시간 전",
     "comments": [
       {
+        "commentProfileImg": "images/geonwoojeon/images/profile/6.jpeg",
         "userName": "Skd_d.s",
-        "content": "good~"
+        "content": "good~",
+        "commentPastTime": "1시간 전"
       },
       {
+        "commentProfileImg": "images/geonwoojeon/images/profile/3.jpeg",
         "userName": "m_M.M_mk",
-        "content": "👍👍👍👍"
+        "content": "👍👍👍👍",
+        "commentPastTime": "3시간 전"
       },
       {
+        "commentProfileImg": "images/geonwoojeon/images/profile/2.jpeg",
         "userName": "wecode",
-        "content": "Welcome to world best coding bootcamp!"
+        "content": "Welcome to world best coding bootcamp!",
+        "commentPastTime": "7시간 전"
       }
     ]
   },
@@ -32,16 +38,22 @@
     "pastTime": "2일 전",
     "comments": [
       {
+        "commentProfileImg": "images/geonwoojeon/images/profile/1.jpeg",
         "userName": "wecode",
-        "content": "Welcome to world best coding bootcamp!"
+        "content": "Welcome to world best coding bootcamp!",
+        "commentPastTime": "1분 전"
       },
       {
+        "commentProfileImg": "images/geonwoojeon/images/profile/2.jpeg",
         "userName": "m_M.M_mk",
-        "content": "ssssaa~"
+        "content": "ssssaa~",
+        "commentPastTime": "30분 전"
       },
       {
+        "commentProfileImg": "images/geonwoojeon/images/profile/3.jpeg",
         "userName": "qqsasasq",
-        "content": "12sasa3"
+        "content": "12sasa3",
+        "commentPastTime": "5시간 전"
       }
     ]
   },
@@ -52,19 +64,25 @@
     "commentCount": "7",
     "img": "images/geonwoojeon/images/feed/cho.jpeg",
     "profileImg": "images/geonwoojeon/images/profile/2.jpeg",
-    "pastTime": "1분 전",
+    "pastTime": "5일 전",
     "comments": [
       {
+        "commentProfileImg": "images/geonwoojeon/images/profile/4.jpeg",
         "userName": "namme1",
-        "content": "Hello world"
+        "content": "Hello world",
+        "commentPastTime": "20초 전"
       },
       {
+        "commentProfileImg": "images/geonwoojeon/images/profile/5.jpeg",
         "userName": "name2~d",
-        "content": "react"
+        "content": "react",
+        "commentPastTime": "1시간 전"
       },
       {
+        "commentProfileImg": "images/geonwoojeon/images/profile/7.jpeg",
         "userName": "name333",
-        "content": "javascript"
+        "content": "javascript",
+        "commentPastTime": "7시간 전"
       }
     ]
   }
