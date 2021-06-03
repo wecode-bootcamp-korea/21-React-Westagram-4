@@ -3,6 +3,8 @@ import './Main.scss';
 import Nav from '../../../Components/Nav/Nav';
 import Feed from '../Components/Feed/Feed';
 import { Link } from 'react-router-dom';
+import { INFO } from '../Components/Footer/FooterInfomation';
+import Follow from '../Components/aside/Follow';
 
 class Main extends React.Component {
   constructor() {
@@ -10,6 +12,7 @@ class Main extends React.Component {
     this.state = {
       feedList: [],
       resize: '',
+      followList: [],
     };
   }
 
@@ -27,6 +30,17 @@ class Main extends React.Component {
           feedList: data,
         });
       });
+
+    fetch('http://localhost:3000/data/follow.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          followList: data,
+        });
+      });
+
     document.querySelector('#main-right').style.left = `${
       167 + window.innerWidth / 2
     }px`;
@@ -39,7 +53,7 @@ class Main extends React.Component {
   };
 
   render() {
-    const { feedList } = this.state;
+    const { feedList, followList } = this.state;
     return (
       <>
         <div className="main">
@@ -210,97 +224,20 @@ class Main extends React.Component {
                   <p>회원님들 위한 추천</p>
                   <span>모두 보기</span>
                 </div>
-                <div className="main-right-follow">
-                  <div className="main-right-follow-image">
-                    <img
-                      src="images/geonwoojeon/images/profile/10.jpeg"
-                      alt="profile-10"
+                {followList.map((content, index) => {
+                  return (
+                    <Follow
+                      profileImg={content.profileImg}
+                      nickName={content.nickName}
+                      key={index}
                     />
-                  </div>
-                  <div className="main-right-follow-nickname">
-                    c.zOOOn
-                    <div className="main-right-follow-comment">
-                      회원님을 팔로우합니다
-                    </div>
-                  </div>
-                  <div className="main-right-follow-button">팔로우</div>
-                </div>
-                <div className="main-right-follow">
-                  <div className="main-right-follow-image">
-                    <img
-                      src="images/geonwoojeon/images/profile/5.jpeg"
-                      alt="5"
-                    />
-                  </div>
-                  <div className="main-right-follow-nickname">
-                    heong.as
-                    <div className="main-right-follow-comment">
-                      회원님을 팔로우합니다
-                    </div>
-                  </div>
-                  <div className="main-right-follow-button">팔로우</div>
-                </div>
-                <div className="main-right-follow">
-                  <div className="main-right-follow-image">
-                    <img
-                      src="images/geonwoojeon/images/profile/8.jpeg"
-                      alt="profile-8"
-                    />
-                    <img
-                      src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
-                      alt="ring"
-                    />
-                  </div>
-                  <div className="main-right-follow-nickname">
-                    csdn_93
-                    <div className="main-right-follow-comment">
-                      회원님을 팔로우합니다
-                    </div>
-                  </div>
-                  <div className="main-right-follow-button">팔로우</div>
-                </div>
-                <div className="main-right-follow">
-                  <div className="main-right-follow-image">
-                    <img
-                      src="images/geonwoojeon/images/profile/11.jpeg"
-                      alt="profile-11"
-                    />
-                  </div>
-                  <div className="main-right-follow-nickname">
-                    hy_min._.
-                    <div className="main-right-follow-comment">
-                      회원님을 팔로우합니다
-                    </div>
-                  </div>
-                  <div className="main-right-follow-button">팔로우</div>
-                </div>
-                <div className="main-right-follow">
-                  <div className="main-right-follow-image">
-                    <img
-                      src="images/geonwoojeon/images/profile/5.jpeg"
-                      alt="profile-5"
-                    />
-                  </div>
-                  <div className="main-right-follow-nickname">
-                    ahffkdb
-                    <div className="main-right-follow-comment">
-                      회원님을 팔로우합니다
-                    </div>
-                  </div>
-                  <div className="main-right-follow-button">팔로우</div>
-                </div>
+                  );
+                })}
+
                 <ul className="main-right-terms">
-                  <li>소개</li>
-                  <li>도움말</li>
-                  <li>홍보 센터</li>
-                  <li>API</li>
-                  <li>채용 정보</li>
-                  <li>개인정보처리방침</li>
-                  <li>약관</li>
-                  <li>위치</li>
-                  <li>인기계정</li>
-                  <li>해시태그</li>
-                  <li>언어</li>
+                  {INFO.map(el => {
+                    return <li key={el.id}>{el.content}</li>;
+                  })}
                 </ul>
                 <div className="main-right-terms-bottom">
                   © 2021 INSTAGRAM FROM FACEBOOK
