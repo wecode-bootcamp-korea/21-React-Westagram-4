@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Feed from './Feed';
-// import Comment from './Comment';
-import './Main.scss';
 
 class FeedList extends Component {
   constructor(props) {
@@ -44,24 +42,16 @@ class FeedList extends Component {
                 Likers: [],
               },
             ],
-            // comments: feed.comments.concat({
-            //   id: feed.comments.length + 1,
-            //   userName: 'hyunchan',
-            //   content: newComment.trim(),
-            //   Likers: [],
-            // }),
           }
         : feed
     );
-    // console.log('<<<<<<<<<<<<<<<<<<<<<<', feedId, nextState);
+
     this.setState({
       feedList: nextState,
     });
   };
 
   onRemoveComment = (e, feedId) => {
-    console.log('onRemove e', e);
-    // e.target.id = 클릭된 댓글의 번호
     const { feedList } = this.state;
     const { id } = e.target;
     const nextState = feedList.map(feed =>
@@ -83,7 +73,6 @@ class FeedList extends Component {
   onToggleLike = (e, feedId) => {
     const { feedList } = this.state;
     const { id } = e.target;
-    console.log('like id', id);
 
     const nextState = feedList.map(feed =>
       feed.id === feedId
@@ -104,24 +93,6 @@ class FeedList extends Component {
           }
         : feed
     );
-
-    //TODO: 삼항 연산자가 안되는 이유 바로 return값을 주기때문에 push랑 이것저것이 안먹히는거같다.
-    // const nextState = feedList.map(feed =>
-    //   feed.id === feedId
-    //     ? {
-    //         ...feed,
-    //         comments: feed.comments.map(comment =>
-    //           comment.id === Number(id)
-    //             ? comment.Likers.includes('hyunchan')
-    //               ? (comment.Likers = comment.Likers.filter(
-    //                   liker => liker !== 'hyunchan'
-    //                 ))
-    //               : comment.Likers.push('hyunchan')
-    //             : comment
-    //         ),
-    //       }
-    //     : feed
-    // );
 
     this.setState({
       feedList: nextState,

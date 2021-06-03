@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Comment from './Comment';
-import './Main.scss';
 
 class CommentList extends Component {
   render() {

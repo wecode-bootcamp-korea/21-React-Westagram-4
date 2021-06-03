@@ -23,7 +23,6 @@ class CommentInput extends Component {
   render() {
     const { inputValue } = this.state;
     const { feedId } = this.props;
-    // console.log('inputCom render feedId', feedId);
     const isSubmitDisable = inputValue && inputValue.length > 0 ? false : true;
     return (
       <>
