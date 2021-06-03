@@ -2,7 +2,7 @@ import React from 'react';
 import Comment from '../Feed/Comment/Comment';
 import PastComment from '../Feed/Comment/PastComment';
 import { Link } from 'react-router-dom';
-import ViewComment from './ViewComment';
+import MoreComment from './MoreComment';
 
 class Feed extends React.Component {
   constructor() {
@@ -12,12 +12,12 @@ class Feed extends React.Component {
       commentList: [],
       pastCommentList: [],
       mode: true,
-      viewCommentList: false,
+      moreCommentList: false,
     };
   }
 
   viewMoreComment = () => {
-    this.setState(state => ({ viewCommentList: !state.viewCommentList }));
+    this.setState(state => ({ moreCommentList: !state.moreCommentList }));
     document.body.style.overflow = 'auto';
   };
 
@@ -43,8 +43,16 @@ class Feed extends React.Component {
     this.setState({ pastCommentList: commentProps });
   }
   render() {
-    const { index, profileImg, author, img, likeCount, title, commentCount } =
-      this.props;
+    const {
+      index,
+      profileImg,
+      author,
+      img,
+      likeCount,
+      title,
+      commentCount,
+      pastTime,
+    } = this.props;
     const { pastCommentList, commentList, comment } = this.state;
     const { inputComment, postComment } = this;
     return (
@@ -182,12 +190,14 @@ class Feed extends React.Component {
             >
               댓글 {commentCount}개 모두 보기
             </Link>
-            {this.state.viewCommentList && (
-              <ViewComment
-                is={this.viewMoreComment}
+            {this.state.moreCommentList && (
+              <MoreComment
+                isCheck={this.viewMoreComment}
                 img={img}
                 author={author}
                 profileImg={profileImg}
+                title={title}
+                pastTime={pastTime}
               />
             )}
 
@@ -209,7 +219,7 @@ class Feed extends React.Component {
                 })}
               </div>
             </div>
-            <div className="article-bottom-past-time">3시간 전</div>
+            <div className="article-bottom-past-time">{pastTime}</div>
             <div className="article-bottom-input">
               <button type="button" className="article-bottom-input-emoji">
                 <svg

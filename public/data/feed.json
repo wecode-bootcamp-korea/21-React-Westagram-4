@@ -6,6 +6,7 @@
     "commentCount": "9",
     "img": "images/geonwoojeon/images/feed/ipad2.jpeg",
     "profileImg": "images/geonwoojeon/images/profile/me.jpeg",
+    "pastTime": "3시간 전",
     "comments": [
       {
         "userName": "Skd_d.s",
@@ -28,6 +29,7 @@
     "commentCount": "102",
     "img": "images/geonwoojeon/images/feed/ka1.jpeg",
     "profileImg": "images/geonwoojeon/images/profile/1.jpeg",
+    "pastTime": "2일 전",
     "comments": [
       {
         "userName": "wecode",
@@ -50,6 +52,7 @@
     "commentCount": "7",
     "img": "images/geonwoojeon/images/feed/cho.jpeg",
     "profileImg": "images/geonwoojeon/images/profile/2.jpeg",
+    "pastTime": "1분 전",
     "comments": [
       {
         "userName": "namme1",

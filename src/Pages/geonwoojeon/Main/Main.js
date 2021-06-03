@@ -187,6 +187,7 @@ class Main extends React.Component {
                       img={comment.img}
                       profileImg={comment.profileImg}
                       comments={comment.comments}
+                      pastTime={comment.pastTime}
                     />
                   );
                 })}
