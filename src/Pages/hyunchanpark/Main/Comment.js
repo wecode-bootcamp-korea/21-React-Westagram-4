@@ -15,23 +15,22 @@ class Comment extends React.Component {
             <span>{comment.content}</span>
           </div>
           <button>
-            {comment.userName === 'hyunchan' ? (
+            {comment.userName === 'hyunchan' && (
               <i
                 className="far fa-trash-alt"
                 id={comment.id}
                 onClick={e => onRemoveComment(e, feedId)}
               />
-            ) : null}
+            )}
 
             <i
               className={`${
-                // comment.isLiked
                 comment.Likers &&
                 comment.Likers.find(liker => liker === 'hyunchan')
                   ? 'fas'
                   : 'far'
               } fa-heart`}
-              id={comment.id}
+              data-commentid={comment.id}
               onClick={e => onToggleLike(e, feedId)}
             />
           </button>

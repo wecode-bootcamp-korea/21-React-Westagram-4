@@ -1,8 +1,5 @@
 @import '../Styles/common.scss';
 
-button {
-  cursor: pointer;
-}
 .entire-container {
   @include flex-set(row, center, center);
   width: 100%;
@@ -23,7 +20,6 @@ button {
 
         .login_container {
           @include flex-set(column, center, center);
-          width: 100%;
 
           h1 {
             width: 175px;

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import './Login.scss';
 
-const regObj = {
+const REGEXP = {
   emailRegExp:
     /[a-zA-Z0-9.-_+!]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]{2,}(?:.[a-zA-Z0-9]{2,3})?/,
   passwordRegExp: /[a-zA-Z0-9]{5,100}/,
@@ -18,40 +18,34 @@ class Login extends React.Component {
 
   validate = (value, regExp) => {
     const reg = new RegExp(regExp);
-    let isValid = false;
-    if (reg.test(value)) isValid = true;
-    return isValid;
+    return reg.test(value);
   };
 
   validateInputData = (id, pw) => {
     return (
-      this.validate(id, regObj.emailRegExp) &&
-      this.validate(pw, regObj.passwordRegExp)
+      this.validate(id, REGEXP.emailRegExp) &&
+      this.validate(pw, REGEXP.passwordRegExp)
     );
   };
 
   handleInput = e => {
-    this.setState(
-      {
-        [e.target.name]: e.target.value,
-      },
-      () => {
-        this.validateInputData(this.state.userId, this.state.userPw);
-      }
-    );
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value,
+    });
   };
 
   handleSubmit = e => {
     e.preventDefault();
 
-    if (!this.validateInputData(this.state.userId, this.state.userPw)) return;
+    const { userId, userPw } = this.state;
+    if (!this.validateInputData(userId, userPw)) return;
 
     this.props.history.push('/main');
   };
 
   render() {
     const { userId, userPw } = this.state;
-    const isDisabled = this.validateInputData(userId, userPw) ? false : true;
 
     return (
       <>
@@ -80,7 +74,7 @@ class Login extends React.Component {
                       <button
                         className="login-button"
                         type="submit"
-                        disabled={isDisabled}
+                        disabled={!this.validateInputData(userId, userPw)}
                         onClick={this.handleSubmit}
                       >
                         로그인
@@ -103,9 +97,9 @@ class Login extends React.Component {
                   </button>
                 </div>
 
-                <a className="search-password" href="/">
+                <Link to="/" className="search-password">
                   비밀번호를 잊으셨나요?
-                </a>
+                </Link>
               </div>
             </div>
 

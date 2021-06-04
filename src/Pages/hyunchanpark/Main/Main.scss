@@ -50,6 +50,9 @@ body {
 
                   .link-background {
                     @include flex-set(null, center, center);
+                    background: url('http://localhost:3000/images/hyunchanpark/images/insta-sprite.png')
+                      no-repeat -306px -66px;
+
                     width: 64px;
                     height: 64px;
                     margin: 0 auto;
@@ -66,6 +69,8 @@ body {
                         left: -4px;
                         width: 64px;
                         height: 64px;
+                        background: url('http://localhost:3000/images/hyunchanpark/images/insta-sprite.png')
+                          no-repeat -306px 0px;
                       }
                     }
                   }
@@ -90,7 +95,7 @@ body {
             border-radius: 3px;
             background: #fff;
 
-            header {
+            .header {
               @include flex-set(null, space-between, center);
               height: 60px;
               padding: 16px;

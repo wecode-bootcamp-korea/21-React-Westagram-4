@@ -10,15 +10,15 @@ class Feed extends Component {
 
     return (
       <>
-        <article className="feed" id={feed.id}>
-          <header>
+        <article className="feed">
+          <div className="header">
             <div className="header-contents-align">
               <div className="user-image-container">
                 <Link to="/main">
                   <img
                     src={feed.userImgSrc}
                     className="user-image"
-                    alt="사용자 이미지"
+                    alt="게시물 작성자"
                   />
                 </Link>
               </div>
@@ -32,7 +32,7 @@ class Feed extends Component {
               </div>
             </div>
             <button>•••</button>
-          </header>
+          </div>
 
           <div className="feed-image">
             <img src={feed.feedImgSrc} alt="feedImage" />

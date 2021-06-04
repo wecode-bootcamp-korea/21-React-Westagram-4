@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 class CommentInput extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       inputValue: '',
@@ -23,7 +23,6 @@ class CommentInput extends Component {
   render() {
     const { inputValue } = this.state;
     const { feedId } = this.props;
-    const isSubmitDisable = inputValue && inputValue.length > 0 ? false : true;
     return (
       <>
         <div className="post-comment">
@@ -61,7 +60,7 @@ class CommentInput extends Component {
               <button
                 className="post-button"
                 type="submit"
-                disabled={isSubmitDisable}
+                disabled={!(inputValue?.length > 0)}
               >
                 게시
               </button>

@@ -18,21 +18,9 @@ class Main extends React.Component {
                     <div className="story">
                       <div className="story-link-container">
                         <Link to="/main" className="story-link">
-                          <div
-                            className="link-background"
-                            style={{
-                              background:
-                                'url("/images/hyunchanpark/images/insta-sprite.png) no-repeat -306px -66px',
-                            }}
-                          >
+                          <div className="link-background">
                             <div className="image-container">
-                              <div
-                                className="image-link"
-                                style={{
-                                  background:
-                                    'url("/images/hyunchanpark/images/insta-sprite.png") no-repeat -306px 0px',
-                                }}
-                              ></div>
+                              <div className="image-link"></div>
                             </div>
                           </div>
                         </Link>
@@ -43,21 +31,9 @@ class Main extends React.Component {
                     <div className="story">
                       <div className="story-link-container">
                         <Link to="/main" className="story-link">
-                          <div
-                            className="link-background"
-                            style={{
-                              background:
-                                'url("/images/hyunchanpark/images/insta-sprite.png") no-repeat -306px -66px',
-                            }}
-                          >
+                          <div className="link-background">
                             <div className="image-container">
-                              <div
-                                className="image-link"
-                                style={{
-                                  background:
-                                    'url("/images/hyunchanpark/images/insta-sprite.png") no-repeat -306px 0px',
-                                }}
-                              ></div>
+                              <div className="image-link"></div>
                             </div>
                           </div>
                         </Link>
@@ -68,20 +44,9 @@ class Main extends React.Component {
                     <div className="story">
                       <div className="story-link-container">
                         <Link to="/main" className="story-link">
-                          <div
-                            className="link-background"
-                            style={{
-                              background:
-                                'url("/images/hyunchanpark/images/insta-sprite.png") no-repeat -306px -66px',
-                            }}
-                          >
+                          <div className="link-background">
                             <div className="image-container">
-                              <div
-                                className="image-link"
-                                style={{
-                                  background: `url(/images/hyunchanpark/images/insta-sprite.png) no-repeat -306px 0px`,
-                                }}
-                              ></div>
+                              <div className="image-link"></div>
                             </div>
                           </div>
                         </Link>

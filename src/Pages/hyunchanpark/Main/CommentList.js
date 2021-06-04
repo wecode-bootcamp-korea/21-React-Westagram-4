@@ -16,16 +16,15 @@ class CommentList extends Component {
           </div>
 
           <div className="other-comments">
-            {commentList &&
-              commentList.map((comment, i) => (
-                <Comment
-                  key={i}
-                  feedId={feedId}
-                  comment={comment}
-                  onToggleLike={onToggleLike}
-                  onRemoveComment={onRemoveComment}
-                />
-              ))}
+            {commentList?.map((comment, i) => (
+              <Comment
+                key={i}
+                feedId={feedId}
+                comment={comment}
+                onToggleLike={onToggleLike}
+                onRemoveComment={onRemoveComment}
+              />
+            ))}
           </div>
 
           <div className="time-container">
