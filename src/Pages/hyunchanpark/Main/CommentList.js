@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Comment from './Comment';
 
 class CommentList extends Component {
@@ -9,9 +10,9 @@ class CommentList extends Component {
       <>
         <div>
           <div className="all-comments-show">
-            <a href="/">
+            <Link to="/main">
               댓글 <span>12,739</span>개 모두 보기
-            </a>
+            </Link>
           </div>
 
           <div className="other-comments">
@@ -28,7 +29,7 @@ class CommentList extends Component {
           </div>
 
           <div className="time-container">
-            <a href="/">
+            <Link to="/main">
               <time
                 className=""
                 dateTime="2021-05-17T18:16:28.000Z"
@@ -36,7 +37,7 @@ class CommentList extends Component {
               >
                 2일 전
               </time>
-            </a>
+            </Link>
           </div>
         </div>
       </>

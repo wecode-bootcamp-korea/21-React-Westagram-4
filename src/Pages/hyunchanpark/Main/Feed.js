@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import CommentInput from './CommentInput';
 import CommentList from './CommentList';
 
@@ -13,19 +14,19 @@ class Feed extends Component {
           <header>
             <div className="header-contents-align">
               <div className="user-image-container">
-                <a href="/">
+                <Link to="/main">
                   <img
                     src={feed.userImgSrc}
                     className="user-image"
                     alt="사용자 이미지"
                   />
-                </a>
+                </Link>
               </div>
               <div className="user-info-container">
                 <div className="user-info">
-                  <a href="/">
+                  <Link to="/main">
                     <span className="user-name">{feed.userName}</span>
-                  </a>
+                  </Link>
                   <span className="city">{feed.city}</span>
                 </div>
               </div>
@@ -113,17 +114,17 @@ class Feed extends Component {
             </div>
 
             <div className="like-counts">
-              <a href="/">
+              <Link to="/main">
                 좋아요
                 <span>{feed.feedLikeCounts}</span>개
-              </a>
+              </Link>
             </div>
 
             <div className="user-comment-container">
               <div className="user-comment">
-                <a href="/" className="comment-id">
+                <Link to="/main" className="comment-id">
                   {feed.userName}
-                </a>
+                </Link>
                 <span>{feed.content}</span>
               </div>
 

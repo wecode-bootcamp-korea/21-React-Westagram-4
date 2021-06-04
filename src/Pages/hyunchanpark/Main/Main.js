@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Nav from '../../../Components/Nav/Nav';
 import FeedList from './FeedList';
 import './Main.scss';
@@ -16,7 +17,7 @@ class Main extends React.Component {
                   <div className="story-container">
                     <div className="story">
                       <div className="story-link-container">
-                        <a href="/" className="story-link">
+                        <Link to="/main" className="story-link">
                           <div
                             className="link-background"
                             style={{
@@ -34,14 +35,14 @@ class Main extends React.Component {
                               ></div>
                             </div>
                           </div>
-                        </a>
+                        </Link>
                       </div>
                       <span className="story-name">name</span>
                     </div>
 
                     <div className="story">
                       <div className="story-link-container">
-                        <a href="/" className="story-link">
+                        <Link to="/main" className="story-link">
                           <div
                             className="link-background"
                             style={{
@@ -59,14 +60,14 @@ class Main extends React.Component {
                               ></div>
                             </div>
                           </div>
-                        </a>
+                        </Link>
                       </div>
                       <span className="story-name">name</span>
                     </div>
 
                     <div className="story">
                       <div className="story-link-container">
-                        <a href="/" className="story-link">
+                        <Link to="/main" className="story-link">
                           <div
                             className="link-background"
                             style={{
@@ -83,7 +84,7 @@ class Main extends React.Component {
                               ></div>
                             </div>
                           </div>
-                        </a>
+                        </Link>
                       </div>
                       <span className="story-name">name</span>
                     </div>
@@ -97,14 +98,14 @@ class Main extends React.Component {
                 <div className="right-contents">
                   <div className="profile-container transparent">
                     <div className="profile transparent">
-                      <a className="userid-link" href="/">
+                      <Link to="/main" className="userid-link">
                         <img
                           src="/images/hyunchanpark//images/user-icon.jpg"
                           alt="user님의 프로필 사진"
                         />
-                      </a>
+                      </Link>
                       <div className="userinfo-text">
-                        <a href="/">userId</a>
+                        <Link to="/main">userId</Link>
                         <span>username</span>
                       </div>
                     </div>
@@ -114,21 +115,21 @@ class Main extends React.Component {
                   <div className="recommend-container transparent">
                     <div className="recommend transparent">
                       <span>회원님을 위한 추천</span>
-                      <a className="suggest" href="/">
+                      <Link to="/main" className="suggest">
                         모두 보기
-                      </a>
+                      </Link>
                     </div>
                     <ul className="recommend-list">
                       <li className="recommend-item">
                         <div className="item">
-                          <a className="item-link" href="/">
+                          <Link to="/main" className="item-link">
                             <img
                               src="/images/hyunchanpark/images/insta-sprite.png"
                               alt="other user"
                             />
-                          </a>
+                          </Link>
                           <div className="username">
-                            <a href="/">imsj208</a>
+                            <Link to="/main">imsj208</Link>
                             <span>kingwoobinkim님 외 6명이 팔로우합니다</span>
                           </div>
                         </div>
@@ -138,14 +139,14 @@ class Main extends React.Component {
                       </li>
                       <li className="recommend-item">
                         <div className="item">
-                          <a className="item-link" href="/">
+                          <Link to="/main" className="item-link">
                             <img
                               src="/images/hyunchanpark/images/insta-sprite.png"
                               alt="other user"
                             />
-                          </a>
+                          </Link>
                           <div className="username">
-                            <a href="/">jinhyung.lee.5832</a>
+                            <Link to="/main">jinhyung.lee.5832</Link>
                             <span>ycw12495님 외 1명이 팔로우합니다</span>
                           </div>
                         </div>
@@ -155,14 +156,14 @@ class Main extends React.Component {
                       </li>
                       <li className="recommend-item">
                         <div className="item">
-                          <a className="item-link" href="/">
+                          <Link to="/main" className="item-link">
                             <img
                               src="/images/hyunchanpark/images/insta-sprite.png"
                               alt="other user"
                             />
-                          </a>
+                          </Link>
                           <div className="username">
-                            <a href="/">msc_940216</a>
+                            <Link to="/main">msc_940216</Link>
                             <span>회원님을 팔로우합니다</span>
                           </div>
                         </div>
@@ -176,59 +177,59 @@ class Main extends React.Component {
                   <footer>
                     <ul>
                       <li>
-                        <a href="/">
+                        <Link to="/main">
                           <span>소개</span>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="/">
+                        <Link to="/main">
                           <span>도움말</span>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="/">
+                        <Link to="/main">
                           <span>홍보센터</span>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="/">
+                        <Link to="/main">
                           <span>API</span>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="/">
+                        <Link to="/main">
                           <span>채용정보</span>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="/">
+                        <Link to="/main">
                           <span>개인정보처리방침</span>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="/">
+                        <Link to="/main">
                           <span>약관</span>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="/">
+                        <Link to="/main">
                           <span>위치</span>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="/">
+                        <Link to="/main">
                           <span>인기계정</span>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="/">
+                        <Link to="/main">
                           <span>해시태그</span>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="/">
+                        <Link to="/main">
                           <span>언어</span>
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                     <span>© 2021 Instagram from Facebook</span>

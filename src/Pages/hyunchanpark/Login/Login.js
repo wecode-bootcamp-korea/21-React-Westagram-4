@@ -66,14 +66,14 @@ class Login extends React.Component {
                       type="text"
                       name="userId"
                       placeholder="전화번호, 사용자 이름 또는 이메일"
-                      value={this.state.userId}
+                      value={userId}
                       onChange={this.handleInput}
                     />
                     <input
                       type="password"
                       name="userPw"
                       placeholder="비밀번호"
-                      value={this.state.userPw}
+                      value={userPw}
                       onChange={this.handleInput}
                     />
                     <Link to="/main">
