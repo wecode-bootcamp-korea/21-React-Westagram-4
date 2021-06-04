@@ -5,7 +5,7 @@ class Follow extends React.Component {
     return (
       <div className="main-right-follow">
         <div className="main-right-follow-image">
-          <img src={this.props.profileImg} alt="profile-10" />
+          <img alt="profile-10" src={this.props.profileImg} />
         </div>
         <div className="main-right-follow-nickname">
           {this.props.nickName}

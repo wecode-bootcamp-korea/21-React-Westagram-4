@@ -4,9 +4,10 @@ class PastMoreComment extends React.Component {
   constructor() {
     super();
     this.state = {
-      pastCommentMode: 'true',
+      pastCommentMode: true,
     };
   }
+
   clickHeart = () => {
     this.setState(state => ({ pastCommentMode: !state.pastCommentMode }));
   };

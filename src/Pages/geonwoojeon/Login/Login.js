@@ -25,6 +25,11 @@ class LoginWoo extends React.Component {
     });
   };
 
+  handleInput = e => {
+    const { value, name } = e.target;
+    this.setState({ [name]: value });
+  };
+
   goToMain = () => {
     // fetch('http://10.58.5.131:8000/user/signin', {
     //   method: 'POST',
@@ -48,7 +53,7 @@ class LoginWoo extends React.Component {
   };
   render() {
     const { value } = this.state;
-    const { handleIdInput, handlePwInput, goToMain } = this;
+    const { handleInput, goToMain } = this;
     return (
       <div className="login">
         <main>
@@ -56,14 +61,16 @@ class LoginWoo extends React.Component {
             <h1 className="title">westagram</h1>
             <form className="input-boxes">
               <input
-                onChange={handleIdInput}
+                onChange={handleInput}
+                name="idValue"
                 value={value}
                 id="email-input-box"
                 type="text"
                 placeholder="전화번호, 사용자 이름 또는 이메일"
               />
               <input
-                onChange={handlePwInput}
+                onChange={handleInput}
+                name="pwValue"
                 id="password-input-box"
                 type="password"
                 placeholder="비밀번호"
@@ -95,8 +102,8 @@ class LoginWoo extends React.Component {
             >
               <span>
                 <img
-                  src="/images/geonwoojeon/images/icon/facebook.png"
                   alt="facebook"
+                  src="/images/geonwoojeon/images/icon/facebook.png"
                 />
               </span>
               Facebook으로 로그인

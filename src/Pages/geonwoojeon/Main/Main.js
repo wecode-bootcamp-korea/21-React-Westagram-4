@@ -68,68 +68,68 @@ class Main extends React.Component {
                         <Link to="/">
                           <img
                             className="story-profile"
-                            src="images/geonwoojeon/images/profile/1.jpeg"
                             alt="story-profile-1"
+                            src="images/geonwoojeon/images/profile/1.jpeg"
                           />
                         </Link>
                         <span className="story-ID">j_u_n98</span>
                         <img
                           className="stroy-ring"
-                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                           alt="ring"
+                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                         />
                       </li>
                       <li>
                         <Link to="/">
                           <img
                             className="story-profile"
-                            src="images/geonwoojeon/images/profile/2.jpeg"
                             alt="story-profile-2"
+                            src="images/geonwoojeon/images/profile/2.jpeg"
                           />
                         </Link>
                         <span className="story-ID">eru77</span>
                         <img
                           className="stroy-ring"
-                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                           alt="ring"
+                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                         />
                       </li>
                       <li>
                         <Link to="/">
                           <img
                             className="story-profile"
-                            src="images/geonwoojeon/images/profile/3.jpeg"
                             alt="story-profile-3"
+                            src="images/geonwoojeon/images/profile/3.jpeg"
                           />
                         </Link>
                         <span className="story-ID">rktbs1</span>
                         <img
                           className="stroy-ring"
-                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                           alt="ring"
+                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                         />
                       </li>
                       <li>
                         <Link to="/">
                           <img
                             className="story-profile"
-                            src="images/geonwoojeon/images/profile/4.jpeg"
                             alt="story-profile-4"
+                            src="images/geonwoojeon/images/profile/4.jpeg"
                           />
                         </Link>
                         <span className="story-ID">gemsto..</span>
                         <img
                           className="stroy-ring"
-                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                           alt="ring"
+                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                         />
                       </li>
                       <li>
                         <Link to="/">
                           <img
                             className="story-profile"
-                            src="images/geonwoojeon/images/profile/5.jpeg"
                             alt="story-profile-5"
+                            src="images/geonwoojeon/images/profile/5.jpeg"
                           />
                         </Link>
                         <span className="story-ID">l_s._</span>
@@ -143,45 +143,45 @@ class Main extends React.Component {
                         <Link to="/">
                           <img
                             className="story-profile"
-                            src="images/geonwoojeon/images/profile/6.jpeg"
                             alt="story-profile-6"
+                            src="images/geonwoojeon/images/profile/6.jpeg"
                           />
                         </Link>
                         <span className="story-ID">aydddd__</span>
                         <img
                           className="stroy-ring"
-                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                           alt="ring"
+                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                         />
                       </li>
                       <li>
                         <Link to="/">
                           <img
                             className="story-profile"
-                            src="images/geonwoojeon/images/profile/7.jpeg"
                             alt="story-profile-7"
+                            src="images/geonwoojeon/images/profile/7.jpeg"
                           />
                         </Link>
                         <span className="story-ID">p_s_l.O</span>
                         <img
                           className="stroy-ring"
-                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                           alt="ring"
+                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                         />
                       </li>
                       <li>
                         <Link to="/">
                           <img
                             className="story-profile"
-                            src="images/geonwoojeon/images/profile/8.jpeg"
                             alt="story-profile-8"
+                            src="images/geonwoojeon/images/profile/8.jpeg"
                           />
                         </Link>
                         <span className="story-ID">cdaa_p</span>
                         <img
                           className="stroy-ring"
-                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                           alt="ring"
+                          src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                         />
                       </li>
                     </ul>
@@ -190,10 +190,10 @@ class Main extends React.Component {
                     <div className="story-arrow-image"></div>
                   </button>
                 </div>
-                {feedList.map((comment, index) => {
+                {feedList.map(comment => {
                   return (
                     <Feed
-                      key={index}
+                      key={comment.id}
                       author={comment.author}
                       likeCount={comment.likeCount}
                       title={comment.title}
@@ -210,8 +210,8 @@ class Main extends React.Component {
                 <div className="main-right-profile">
                   <div className="main-right-profile-image">
                     <img
-                      src="images/geonwoojeon/images/profile/me.jpeg"
                       alt="profile-me"
+                      src="images/geonwoojeon/images/profile/me.jpeg"
                     />
                   </div>
                   <div className="main-right-profile-nickname">
@@ -224,12 +224,12 @@ class Main extends React.Component {
                   <p>회원님들 위한 추천</p>
                   <span>모두 보기</span>
                 </div>
-                {followList.map((content, index) => {
+                {followList.map(content => {
                   return (
                     <Follow
                       profileImg={content.profileImg}
                       nickName={content.nickName}
-                      key={index}
+                      key={content.id}
                     />
                   );
                 })}

@@ -4,9 +4,12 @@ import PastMoreComment from './Modal/PastMoreComment';
 import MoreComment from './Modal/MoreComment';
 
 class ModalComment extends React.Component {
-  constructor() {
-    super();
+  componentDidMount() {
     document.body.style.overflow = 'hidden';
+  }
+
+  componentWillUnmount() {
+    document.body.style.overflow = 'auto';
   }
 
   render() {
@@ -33,12 +36,12 @@ class ModalComment extends React.Component {
         </button>
         <div className="modal-container" onClick={e => e.stopPropagation()}>
           <div className="modal-left">
-            <img src={img} alt={author}></img>
+            <img alt={author} src={img}></img>
           </div>
           <div className="modal-right">
             <div className="modal-right-header">
               <div className="modal-right-profileImg">
-                <img src={profileImg} alt={author}></img>
+                <img alt={author} src={profileImg}></img>
               </div>
               <div className="modal-right-title">{author}</div>
               <svg
@@ -73,7 +76,7 @@ class ModalComment extends React.Component {
             </div>
             <div className="modal-right-comment">
               <div className="modal-right-comment-author">
-                <img src={profileImg} alt={author}></img>
+                <img alt={author}> src={profileImg} </img>
                 <div className="modal-right-comment-author-left">
                   <div className="modal-right-comment-author-title">
                     {author}&ensp;
@@ -111,11 +114,11 @@ class ModalComment extends React.Component {
               })}
 
               <div className="modal-right-comment-input">
-                <div className="article-bottom-icon">
-                  <div className="article-bottom-icon-left">
+                <div className="article-footer-icon">
+                  <div className="article-footer-icon-left">
                     <button
                       type="button"
-                      className="article-bottom-icon-heart"
+                      className="article-footer-icon-heart"
                       onClick={clickHeart}
                     >
                       <svg
@@ -136,7 +139,7 @@ class ModalComment extends React.Component {
                     </button>
                     <button
                       type="button"
-                      className="article-bottom-icon-left-comment"
+                      className="article-footer-icon-left-comment"
                     >
                       <svg
                         aria-label="댓글 달기"
@@ -154,7 +157,7 @@ class ModalComment extends React.Component {
                     </button>
                     <button
                       type="button"
-                      className="article-bottom-icon-left-share"
+                      className="article-footer-icon-left-share"
                     >
                       <svg
                         aria-label="게시물 공유"
@@ -167,10 +170,10 @@ class ModalComment extends React.Component {
                       </svg>
                     </button>
                   </div>
-                  <div className="article-bottom-icon-right">
+                  <div className="article-footer-icon-right">
                     <button
                       type="button"
-                      className="article-bottom-icon-left-save"
+                      className="article-footer-icon-left-save"
                     >
                       <svg
                         aria-label="저장"
@@ -184,15 +187,15 @@ class ModalComment extends React.Component {
                     </button>
                   </div>
                 </div>
-                <div className="article-bottom-thank">
+                <div className="article-footer-thank">
                   <Link to="/">
                     좋아요
                     <span> {mode ? likeCount : Number(likeCount) + 1}</span>개
                   </Link>
                 </div>
-                <div className="article-bottom-past-time">{pastTime}</div>
-                <div className="article-bottom-input">
-                  <button type="button" className="article-bottom-input-emoji">
+                <div className="article-footer-past-time">{pastTime}</div>
+                <div className="article-footer-input">
+                  <button type="button" className="article-footer-input-emoji">
                     <svg
                       aria-label="이모티콘"
                       fill="#262626"
@@ -206,7 +209,7 @@ class ModalComment extends React.Component {
                   </button>
                   <form>
                     <input
-                      className="article-bottom-input-comment"
+                      className="article-footer-input-comment"
                       type="text"
                       placeholder="댓글 달기.."
                       value={comment}
@@ -214,7 +217,7 @@ class ModalComment extends React.Component {
                     />
                     <button
                       type="submit"
-                      className="article-bottom-input-posting"
+                      className="article-footer-input-posting"
                       disabled={comment.length < 1}
                       onClick={postComment}
                     >

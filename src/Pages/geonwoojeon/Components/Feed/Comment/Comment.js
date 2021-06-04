@@ -4,9 +4,10 @@ class Comment extends React.Component {
   constructor() {
     super();
     this.state = {
-      pastCommentMode: 'true',
+      pastCommentMode: true,
     };
   }
+
   clickHeart = () => {
     this.setState(state => ({ pastCommentMode: !state.pastCommentMode }));
   };
@@ -15,12 +16,12 @@ class Comment extends React.Component {
     const { pastCommentMode } = this.state;
     const { clickHeart } = this;
     return (
-      <div className="article-bottom-comment text" key={key}>
+      <div className="article-footer-comment text" key={key}>
         {name}
         <span> {comment}</span>
         <span>
           <svg
-            className="article-bottom-comment heart"
+            className="article-footer-comment heart"
             aria-label="좋아요"
             height="12"
             viewBox="0 0 48 48"

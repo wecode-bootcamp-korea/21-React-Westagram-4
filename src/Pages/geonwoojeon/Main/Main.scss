@@ -168,7 +168,7 @@ main {
           }
         }
 
-        .article-bottom {
+        .article-footer {
           width: 100%;
           padding: 16px 16px 0 16px;
           background: #fff;
@@ -351,7 +351,7 @@ main {
             }
           }
 
-          .article-bottom-icon {
+          .article-footer-icon {
             display: flex;
             justify-content: space-between;
 
@@ -367,16 +367,16 @@ main {
               }
             }
 
-            .article-bottom-icon-left button:nth-child(1) {
+            .article-footer-icon-left button:nth-child(1) {
               padding-left: 0px;
             }
 
-            .article-bottom-icon-right button {
+            .article-footer-icon-right button {
               padding-right: 0px;
             }
           }
 
-          .article-bottom-thank {
+          .article-footer-thank {
             margin-bottom: 8px;
 
             a:hover {
@@ -386,18 +386,18 @@ main {
           }
 
           .text,
-          .article-bottom-thank a {
+          .article-footer-thank a {
             color: $black-color;
             font-weight: 600;
             font-size: $middle-font;
           }
 
-          .article-bottom-more-comment {
+          .article-footer-more-comment {
             color: #8e8e8e;
             font-size: $middle-font;
           }
 
-          .article-bottom-comment-box .article-bottom-comment {
+          .article-footer-comment-box .article-footer-comment {
             position: relative;
 
             svg {
@@ -410,12 +410,12 @@ main {
           }
 
           span,
-          .article-bottom-title span {
+          .article-footer-title span {
             font-size: $middle-font;
             font-weight: 400;
           }
 
-          .article-bottom-comment-box .article-bottom-comment {
+          .article-footer-comment-box .article-footer-comment {
             i {
               position: absolute;
               margin-right: 25px;
@@ -435,14 +435,14 @@ main {
             }
           }
 
-          .article-bottom-past-time {
+          .article-footer-past-time {
             margin: 8px 0;
             font-size: 10px;
             letter-spacing: 0.2px;
             color: #8e8e8e;
           }
 
-          .article-bottom-input {
+          .article-footer-input {
             display: flex;
             position: relative;
             margin: 0;
@@ -450,7 +450,7 @@ main {
             min-height: 56px;
             align-items: center;
 
-            .article-bottom-input-emoji {
+            .article-footer-input-emoji {
               padding: 8px 16px 8px 0;
               background: transparent;
               border: none;
@@ -464,7 +464,7 @@ main {
               }
             }
 
-            .article-bottom-input-posting {
+            .article-footer-input-posting {
               position: absolute;
               right: 0;
               font-size: $middle-font;

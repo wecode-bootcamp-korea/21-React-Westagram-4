@@ -7,6 +7,7 @@ class MoreComment extends React.Component {
       mode: true,
     };
   }
+
   clickHeart = () => {
     this.setState(state => ({ mode: !state.mode }));
   };
@@ -17,7 +18,7 @@ class MoreComment extends React.Component {
     const { mode } = this.state;
     return (
       <div className="modal-right-comment-user" key={key}>
-        <img src="images/geonwoojeon/images/profile/me.jpeg" alt={author}></img>
+        <img alt={author} src="images/geonwoojeon/images/profile/me.jpeg"></img>
         <div className="modal-right-comment-user-left">
           <div className="modal-right-comment-user-title">
             {author}&ensp;

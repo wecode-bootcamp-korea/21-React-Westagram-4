@@ -1,6 +1,5 @@
 import React from 'react';
 import Comment from '../Feed/Comment/Comment';
-import PastComment from '../Feed/Comment/PastComment';
 import { Link } from 'react-router-dom';
 import ModalComment from './ModalComment';
 
@@ -10,13 +9,15 @@ class Feed extends React.Component {
     this.state = {
       comment: '',
       commentList: [],
-      pastCommentList: [],
       mode: true,
       moreCommentList: false,
     };
   }
+
   viewMoreComment = () => {
-    this.setState(state => ({ moreCommentList: !state.moreCommentList }));
+    this.setState(prevstate => ({
+      moreCommentList: !prevstate.moreCommentList,
+    }));
     document.body.style.overflow = 'auto';
   };
 
@@ -37,10 +38,6 @@ class Feed extends React.Component {
     });
   };
 
-  componentDidMount() {
-    const commentProps = this.props.comments;
-    this.setState({ pastCommentList: commentProps });
-  }
   render() {
     const {
       index,
@@ -51,18 +48,19 @@ class Feed extends React.Component {
       title,
       commentCount,
       pastTime,
+      comments,
     } = this.props;
-    const { pastCommentList, commentList, comment, mode } = this.state;
+    const { commentList, comment, mode } = this.state;
     const { inputComment, postComment, clickHeart, viewMoreComment } = this;
     return (
       <div className="feed" key={index}>
         <article>
-          <div className="article-head">
+          <section className="article-head">
             <Link to="/" className="article-profile">
-              <img src={profileImg} alt={title} />
+              <img alt={title} src={profileImg} />
               <img
-                src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
                 alt="ringImg"
+                src="images/geonwoojeon/images/icon/Instagram_Stories_ring.svg"
               />
               <span className="article-ID">{author}</span>
             </Link>
@@ -95,16 +93,16 @@ class Feed extends React.Component {
                 r="4.5"
               ></circle>
             </svg>
-          </div>
-          <div className="article-body">
-            <img src={img} alt={title} />
-          </div>
-          <div className="article-bottom">
-            <div className="article-bottom-icon">
-              <div className="article-bottom-icon-left">
+          </section>
+          <section className="article-body">
+            <img alt={title} src={img} />
+          </section>
+          <section className="article-footer">
+            <div className="article-footer-icon">
+              <div className="article-footer-icon-left">
                 <button
                   type="button"
-                  className="article-bottom-icon-heart"
+                  className="article-footer-icon-heart"
                   onClick={clickHeart}
                 >
                   <svg
@@ -125,7 +123,7 @@ class Feed extends React.Component {
                 </button>
                 <button
                   type="button"
-                  className="article-bottom-icon-left-comment"
+                  className="article-footer-icon-left-comment"
                 >
                   <svg
                     aria-label="댓글 달기"
@@ -143,7 +141,7 @@ class Feed extends React.Component {
                 </button>
                 <button
                   type="button"
-                  className="article-bottom-icon-left-share"
+                  className="article-footer-icon-left-share"
                 >
                   <svg
                     aria-label="게시물 공유"
@@ -156,8 +154,8 @@ class Feed extends React.Component {
                   </svg>
                 </button>
               </div>
-              <div className="article-bottom-icon-right">
-                <button type="button" className="article-bottom-icon-left-save">
+              <div className="article-footer-icon-right">
+                <button type="button" className="article-footer-icon-left-save">
                   <svg
                     aria-label="저장"
                     fill="#262626"
@@ -170,17 +168,17 @@ class Feed extends React.Component {
                 </button>
               </div>
             </div>
-            <div className="article-bottom-thank">
+            <div className="article-footer-thank">
               <Link to="/">
                 좋아요 <span>{mode ? likeCount : Number(likeCount) + 1}</span>개
               </Link>
             </div>
-            <div className="article-bottom-title text">
+            <div className="article-footer-title text">
               {author}
               <span>{title}</span>
             </div>
             <Link
-              className="article-bottom-more-comment"
+              className="article-footer-more-comment"
               onClick={viewMoreComment}
             >
               댓글 {commentCount}개 모두 보기
@@ -190,7 +188,7 @@ class Feed extends React.Component {
                 likeCount={likeCount}
                 clickHeart={clickHeart}
                 mode={mode}
-                pastCommentList={pastCommentList}
+                pastCommentList={this.props.comments}
                 isCheck={viewMoreComment}
                 img={img}
                 author={author}
@@ -204,23 +202,23 @@ class Feed extends React.Component {
               />
             )}
 
-            <div className="article-bottom-comment-box">
-              {pastCommentList.map((comment, index) => {
+            <div className="article-footer-comment-box">
+              {comments.map(comment => {
                 return (
-                  <PastComment
+                  <Comment
                     name={comment.userName}
                     comment={comment.content}
-                    key={index}
+                    key={comment.id}
                   />
                 );
               })}
               <div>
-                {commentList.map((comment, index) => {
+                {commentList.map(comment => {
                   return (
                     <Comment
                       name={'raing_8'}
                       comment={comment}
-                      key={index}
+                      key={comment.id}
                       mode={mode}
                       clickHeart={clickHeart}
                     />
@@ -228,9 +226,9 @@ class Feed extends React.Component {
                 })}
               </div>
             </div>
-            <div className="article-bottom-past-time">{pastTime}</div>
-            <div className="article-bottom-input">
-              <button type="button" className="article-bottom-input-emoji">
+            <div className="article-footer-past-time">{pastTime}</div>
+            <div className="article-footer-input">
+              <button type="button" className="article-footer-input-emoji">
                 <svg
                   aria-label="이모티콘"
                   fill="#262626"
@@ -244,7 +242,7 @@ class Feed extends React.Component {
               </button>
               <form>
                 <input
-                  className="article-bottom-input-comment"
+                  className="article-footer-input-comment"
                   type="text"
                   placeholder="댓글 달기.."
                   value={comment}
@@ -252,7 +250,7 @@ class Feed extends React.Component {
                 />
                 <button
                   type="submit"
-                  className="article-bottom-input-posting"
+                  className="article-footer-input-posting"
                   disabled={comment.length < 1}
                   onClick={postComment}
                 >
@@ -260,7 +258,7 @@ class Feed extends React.Component {
                 </button>
               </form>
             </div>
-          </div>
+          </section>
         </article>
       </div>
     );
