@@ -1,0 +1,47 @@
+@import './_variable';
+@import './_mixin';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+div {
+  background-color: #fff;
+}
+
+main,
+section {
+  display: flex;
+}
+
+body,
+button,
+input,
+textarea,
+div,
+span,
+a {
+  color: $font-default-color;
+  font-size: $font-default-size;
+  line-height: $font-default-line-height;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a,
+a:visited {
+  color: $font-default-color;
+  text-decoration: none;
+}

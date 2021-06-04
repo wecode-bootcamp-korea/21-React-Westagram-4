@@ -1,0 +1,529 @@
+@import '../Styles/common.scss';
+
+body {
+  background-color: $background-default-color;
+  overflow-y: scroll;
+}
+
+.main-container {
+  background-color: $background-default-color;
+
+  .section-container {
+    max-width: 935px;
+    margin: 0 auto;
+    padding-top: 70px;
+    background-color: $background-default-color;
+
+    .main-section {
+      .left-contents {
+        width: 100%;
+        max-width: 614px;
+        margin-right: 28px;
+        background-color: $background-default-color;
+
+        .stories {
+          height: 118px;
+          border: $border-default-set;
+          border-radius: 3px;
+          margin-bottom: 24px;
+          margin-top: 0;
+          padding: 16px 0;
+          background: #fff;
+
+          .story-container {
+            display: flex;
+            padding: 0 10px;
+
+            .story {
+              @include flex-set(column, null, center);
+              width: 80px;
+              height: 100%;
+
+              .story-link-container {
+                width: 80px;
+                height: 66px;
+                margin: 0 auto;
+
+                .story-link {
+                  width: 100%;
+                  height: 100%;
+
+                  .link-background {
+                    @include flex-set(null, center, center);
+                    background: url('http://localhost:3000/images/hyunchanpark/images/insta-sprite.png')
+                      no-repeat -306px -66px;
+
+                    width: 64px;
+                    height: 64px;
+                    margin: 0 auto;
+
+                    .image-container {
+                      width: 56px;
+                      height: 56px;
+                      border: none;
+                      border-radius: 50%;
+
+                      .image-link {
+                        position: relative;
+                        top: -4px;
+                        left: -4px;
+                        width: 64px;
+                        height: 64px;
+                        background: url('http://localhost:3000/images/hyunchanpark/images/insta-sprite.png')
+                          no-repeat -306px 0px;
+                      }
+                    }
+                  }
+                }
+              }
+
+              .story-name {
+                font-size: $font-default-size;
+              }
+            }
+          }
+        }
+
+        .feeds {
+          @include flex-set(column, null, null);
+          padding-top: 0px;
+          background-color: $background-default-color;
+
+          .feed {
+            margin-bottom: 60px;
+            border: $border-default-set;
+            border-radius: 3px;
+            background: #fff;
+
+            .header {
+              @include flex-set(null, space-between, center);
+              height: 60px;
+              padding: 16px;
+              border-bottom: 1px solid #efefef;
+              background-color: #fff;
+
+              .header-contents-align {
+                @include flex-set(null, null, center);
+
+                .user-image-container {
+                  width: 32px;
+                  height: 32px;
+                  border: $border-default-set;
+                  border-radius: 50%;
+                  overflow: hidden;
+
+                  .user-image {
+                    width: 100%;
+                    height: 100%;
+                    background-color: #8e8e8e;
+                  }
+                }
+
+                .user-info-container {
+                  margin-left: 14px;
+
+                  .user-info {
+                    @include flex-set(column, center, null);
+                    .user-name {
+                      color: $font-default-color;
+                      font-size: $font-default-size;
+                      font-weight: $font-bold-weight;
+                    }
+
+                    .city {
+                      font-size: $font-small-size;
+                    }
+                  }
+                }
+
+                button {
+                  @include flex-set(null, center, center);
+                  width: 40px;
+                  height: 40px;
+                  border: none;
+                  background-color: #fff;
+                }
+              }
+            }
+
+            .feed-image {
+              position: relative;
+              width: 100%;
+
+              img {
+                width: 100%;
+                object-fit: cover;
+              }
+            }
+
+            .comments {
+              @include flex-set(column, null, null);
+              width: 100%;
+              margin-top: 4px;
+              padding: 0 16px;
+              background: #fff;
+
+              .comments-icons {
+                @include flex-set(null, space-between, center);
+                position: relative;
+                margin-bottom: 5px;
+
+                div {
+                  padding: 0;
+
+                  button {
+                    width: 24px;
+                    height: 24px;
+                    margin-right: 12px;
+                    border: none;
+                    background: #fff;
+
+                    .icon-heart,
+                    .icon-reply,
+                    .icon-share {
+                      padding: 0;
+                    }
+                  }
+                }
+                .button-bookmark {
+                  padding: 0;
+                }
+              }
+
+              .like-counts {
+                width: 100%;
+                margin-bottom: 8px;
+                font-weight: 600;
+              }
+
+              .user-comment-container {
+                .user-comment,
+                .all-comments-show,
+                .other-comments,
+                .other-comments .comment {
+                  margin-bottom: 4px;
+                }
+
+                .user-comment {
+                  .comment-id {
+                    margin-right: 4px;
+                    font-weight: 600;
+                  }
+                }
+
+                .all-comments-show {
+                  a {
+                    color: #8e8e8e;
+
+                    span {
+                      color: #8e8e8e;
+                    }
+                  }
+                }
+
+                .other-comments {
+                  @include flex-set(column, null, null);
+
+                  .comment {
+                    @include flex-set(null, space-between, null);
+
+                    .comment-content {
+                      .comment-id {
+                        margin-right: 4px;
+                        font-weight: 600;
+                      }
+                    }
+
+                    button {
+                      i {
+                        margin-left: 6px;
+                      }
+
+                      .fas {
+                        color: red;
+                      }
+                    }
+                  }
+                }
+
+                .time-container {
+                  margin-bottom: 4px;
+
+                  a {
+                    margin-bottom: 5px;
+                    color: #8e8e8e;
+
+                    time {
+                      font-size: 10px;
+                      letter-spacing: 0.2px;
+                    }
+                  }
+                }
+                .post-comment {
+                  @include flex-set(null, null, center);
+                  min-height: 56px;
+                  margin-top: 4px;
+                  padding: 0 16px;
+                  border-top: 1px solid #efefef;
+                  color: #8e8e8e;
+
+                  .comment-form-container {
+                    display: flex;
+                    width: 100%;
+
+                    .comment-form {
+                      @include flex-set(null, space-between, center);
+                      width: 100%;
+
+                      .emoji-button {
+                        @include flex-set(null, null, center);
+                        width: 40px;
+                        height: 40px;
+                        padding: 8px 16px 8px 0;
+                        border: none;
+                        background: #fff;
+
+                        .svg {
+                          width: 24px;
+                          height: 24px;
+                        }
+                      }
+
+                      .comment-input {
+                        flex-grow: 1;
+                        height: 18px;
+                        max-height: 80px;
+                        padding: 0;
+                        border: 0;
+                        color: $font-default-color;
+                        outline: 0;
+                        resize: none;
+                        overflow-y: auto;
+
+                        &::placeholder {
+                          color: #8e8e8e;
+                        }
+                      }
+
+                      .post-button {
+                        width: auto;
+                        height: 18px;
+                        border: 0;
+                        color: #0095f6;
+                        font-weight: $font-bold-weight;
+                        background-color: #fff;
+                        opacity: 1;
+
+                        &:disabled {
+                          pointer-events: none;
+                          opacity: 0.3;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .right-contents-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 293px;
+        margin-top: 25px;
+
+        .right-contents {
+          position: fixed;
+          background-color: $background-default-color;
+
+          .profile-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+
+            &.transparent {
+              background: transparent;
+            }
+
+            .profile {
+              display: flex;
+              align-items: center;
+
+              &.transparent {
+                background: transparent;
+              }
+
+              .userid-link {
+                width: 56px;
+                height: 56px;
+
+                img {
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 50%;
+                }
+              }
+
+              .userinfo-text {
+                display: flex;
+                flex-direction: column;
+                margin-left: 12px;
+                background-color: transparent;
+
+                a {
+                  font-weight: 600;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                }
+
+                span {
+                  color: #8e8e8e;
+                  font-size: $font-default-size;
+                  line-height: 18px;
+                  font-weight: 400;
+                }
+              }
+            }
+
+            button {
+              color: #0095f6;
+              font-size: 12px;
+              line-height: 14px;
+              font-weight: 600;
+              border: 0;
+
+              &.transparent {
+                background: transparent;
+              }
+            }
+          }
+
+          .recommend-container {
+            margin-top: 20px;
+            margin-bottom: 12px;
+
+            &.transparent {
+              background: transparent;
+            }
+
+            .recommend {
+              @include flex-set(null, space-between, center);
+              &.transparent {
+                background: transparent;
+              }
+
+              span {
+                color: #8e8e8e;
+                font-weight: $font-bold-weight;
+              }
+
+              a {
+                font-weight: $font-bold-weight;
+              }
+            }
+
+            .recommend-list {
+              padding-bottom: 8px;
+              padding-top: 8px;
+
+              .recommend-item {
+                @include flex-set(null, space-between);
+                padding: 8px 0;
+
+                .item {
+                  display: flex;
+
+                  .item-link {
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    overflow: hidden;
+
+                    img {
+                      object-fit: none;
+                      object-position: -376px -241px;
+                      width: 40px;
+                      height: 40px;
+                    }
+                  }
+
+                  .username {
+                    @include flex-set(column, null, null);
+                    padding-left: 10px;
+                    background-color: $background-default-color;
+
+                    a {
+                      font-weight: $font-bold-weight;
+                    }
+
+                    span {
+                      display: block;
+                      width: 201px;
+                      margin-top: 2px;
+                      color: #8e8e8e;
+                      @include font-set($font-small-size, null, 14px);
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                      white-space: nowrap;
+                    }
+                  }
+                }
+
+                .follow-button {
+                  color: #0095f6;
+                  @include font-set($font-small-size, $font-bold-weight, 14px);
+                  margin: -2px 0 -3px;
+                  border: none;
+                }
+              }
+            }
+          }
+
+          footer {
+            width: 293px;
+
+            ul {
+              width: 100%;
+              margin-bottom: 16px;
+
+              li {
+                display: inline;
+                white-space: nowrap;
+
+                a {
+                  @include font-set(11px, 400, 13px);
+
+                  span {
+                    color: #c7c7c7;
+                    text-transform: uppercase;
+                  }
+
+                  &::after {
+                    content: '\00B7';
+                    margin: 0 0.25em 0 0.25em;
+                    color: #c7c7c7;
+                  }
+                }
+
+                &:last-child a:after {
+                  content: none;
+                }
+              }
+            }
+
+            span {
+              color: #c7c7c7;
+              @include font-set(11px, 400, 13px);
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+    }
+  }
+}
