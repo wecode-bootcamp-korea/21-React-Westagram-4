@@ -50,27 +50,43 @@
 
 - 위 공식문서를 참고하여 `map 함수 적용시 key props를 부여하는 이유`에 대해 블로그를 작성해주세요.
 - 본인이 작성한 map 함수 사용 코드를 예시로 활용하여 설명해주세요.
+  
+# 💻 프로젝트
+![1-1](https://user-images.githubusercontent.com/73716178/120894163-fdf0cf00-c651-11eb-8021-679e9811f730.gif)
+![1-2](https://user-images.githubusercontent.com/73716178/120894170-03e6b000-c652-11eb-9c83-004b0d97a85a.gif)
 
-## 작업기간
+## 📢 주제: React를 사용한 Instagram Clone
 
----
+- CRA를 사용한 초기 세팅
+- 3명의 팀원들이 공통 Common.scss, Reset.scss, Variables.scss 사용 및 관리
+- git을 사용한 첫 번째 협업
 
-- 2021.05.26 - 2021~
+## 📆 프로젝트 기간
 
-## 기술 Stack
+- 2021.5.26 ~ 6/4
 
----
+## ⛳️ 팀원 별 작업 현황
 
-- HTML, CSS
+Git을 활용한 Westagram React 팀 프로젝트
+
+- 바닐라 자바스크립트로 클론한 인스타그램 프로젝트 리액트로 옮기기
+- 로그인 페이지 레이아웃
+- id, pw 입력 시 로그인 버튼 활성화 기능
+- 메인 페이지 레이아웃
+- 댓글 내용 입력 후 Enter press, 혹은 게시 버튼 클릭 시 댓글 추가 기능
+- 문자 입력 시 게시 버튼 활성화 기능
+- Mockdata를 활용한 여러 줄의 댓글 및 피드 구현
+
+## 🛠 기술 스택
+
+- HTML,CSS
 - JavaScript(ES6+)
 - React
 - SCSS
 - JSON
 
-## 팀원
+## 👥 팀원 깃허브
 
----
-
-- 전건우
-- 이상훈
-- 박현찬
+- [전건우](https://github.com/fghjjkl32)
+- [이상훈](https://github.com/simoniful)
+- [박현찬](https://github.com/Eyes0n)
